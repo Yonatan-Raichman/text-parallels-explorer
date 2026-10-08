@@ -16,9 +16,9 @@ Tests: `python tests.py`
 
 ## Corpus
 
-`corpus/` contains Matthew, Mark, Luke and John from the King James Version (public domain,
-Project Gutenberg ebooks 8040-8043), cleaned by `get_texts.py` to one verse per line.
-Matthew, Mark and Luke share a lot of text; John shares little, so it is a useful comparison.
+`corpus/` folder contains the four Gospels. The Gospels are Matthew, Mark, Luke, and John from the King James Version of the Bible (public domain, Project Gutenberg ebooks 8040–8043). The texts are processed by `get_texts.py`, which organizes them into one verse per line.
+
+Matthew, Mark, and Luke tell many of the same stories about Jesus, often using similar wording. John tells the story from a different perspective and shares fewer identical passages. This makes the four Gospels useful for testing how well the algorithm identifies similarities and differences between texts.
 
 ## Database (SQLite, one file)
 
@@ -31,13 +31,23 @@ Matthew, Mark and Luke share a lot of text; John shares little, so it is a usefu
 
 ## Algorithm
 
-1. Split each text into lowercase words, remembering each word's position in the original text.
-2. **Seeds**: find every 4-word phrase that appears in both texts (using a dictionary, so it is fast).
-   Phrases that appear more than 25 times are ignored as too common.
-3. **Group**: seeds that are close together (at most 20 words apart) in both texts form one passage.
-   The gaps between seeds are what allow near matches.
-4. **Score**: `2 x matching words / total words` (Python's `difflib`). 1.0 = exact, otherwise near.
-   Matches shorter than 8 words or below 0.5 are dropped, and overlapping matches are reduced to the longest.
+1. **Split the two Gospels into words.**  
+   Each Gospel is cleaned into a list of lowercase words, while the original character position of every word is also saved. These positions are needed later so the matched passage can be located and highlighted in the original text.
+
+2. **Find seeds using a sliding window.**  
+   Both Gospels are searched for **seeds**, where a seed is a sequence of **4 consecutive identical words**. A 4-word sliding window moves through the texts and compares the phrases. When the same 4-word phrase appears in both texts, its **starting word position in each Gospel** is saved as a seed, for example `(100, 250)`. Phrases that appear **more than 25 times** in the second text are ignored because they are too common to be useful evidence of a meaningful parallel.
+
+3. **Group nearby seeds into larger passages.**  
+   Seeds that occur close to each other in **both Gospels** are grouped together. A new seed can join a group only if it is no more than **20 words after the previous seed in both texts**. This allows the algorithm to connect several small exact matches into one larger passage, even if some words between the seeds are different. If a seed is too far away to join an existing group, it starts a new group.
+
+4. **Build and evaluate the complete passage.**  
+   The first and last seeds in each group are used to determine the full passage in both Gospels. The passages are then given a similarity score using `SequenceMatcher`:
+
+                 2 × matching words in order
+   score = -----------------------------------------
+            words in passage A + words in passage B
+
+The similarity score is calculated using `SequenceMatcher` because an exact comparison would be too strict. Parallel passages may contain small wording differences while still being clearly related. The score measures how much of the two passages matches in the same order while taking the length of both passages into account. This produces a normalized value between `0` and `1`, where `1` means the passages are identical. Using both passage lengths also prevents a short passage contained inside a much longer passage from incorrectly receiving a perfect score.
 
 ## How good is it? Testing the settings
 
@@ -53,15 +63,6 @@ the program finds parallels with each one.
 2. **The real test.** The program runs on the real Gospels, and its results are compared with a list of
    455 known parallels from Kurt Aland's *Synopsis of the Four Gospels*, the standard reference book that
    scholars use (`gold_parallels.csv`, made from `gold/aland_table.txt` by `gold/make_gold.py`).
-
-### What the scores mean
-
-Imagine looking for 100 coins hidden on a beach with a metal detector:
-
-- **Precision (correct):** of everything you dug up, how much was really a coin? High = few false alarms.
-- **Recall (found):** of the 100 hidden coins, how many did you find? High = few missed.
-- **Overall score (F1):** one grade combining the two. It is only high when both are high.
-- **Known found:** in the real test, how many of the 455 known parallels the program found.
 
 ### Results with the current settings
 
@@ -92,35 +93,18 @@ that compares words cannot match those. Even the loosest settings only find abou
 **Conclusion:** the current settings are a good balance, so I kept them. For two settings (MIN_SCORE and
 MAX_COMMON) the two tests disagreed: the practice test preferred stricter values, the real Gospels preferred
 looser ones. Real authors change wording in more ways than my random edits do, so I followed the real texts.
-This is exactly why it is useful to have both tests.
-
-### See it yourself
-
-Open `benchmark_report.html` in a browser for the charts and all the numbers. To run the benchmark again
-(it takes a few minutes, and nothing extra needs to be installed):
-
-```
-python benchmark.py
-```
-
-## Extra features
-
-- Verse numbers (e.g. Mark 1:3) next to every passage, because that is how researchers cite.
-- Words that differ between the two passages are highlighted, because the differences are what a researcher studies.
-- Overview of how many parallels each pair of books shares.
-- Download the (filtered) list as CSV.
 
 ## Limitations
 
-- Only finds passages that share some exact 4-word phrases; paraphrases with different words are missed.
+- Only finds passages that share some exact 4-word phrases. Paraphrases with different words are missed.
 - "Exact" ignores capital letters and punctuation.
-- The settings were tested on the Gospels only; other texts (or other languages) may need other settings.
-- The known-parallels list is not complete, so the benchmark can show what the program misses, but only
+- The settings were tested on the Gospels only. Other texts (or other languages) may need other settings.
+- The known parallels list is not complete, so the benchmark can show what the program misses, but only
   estimate how many of its matches are wrong.
-- If a text file is changed, old positions are no longer correct (delete the database to start fresh).
+- If a text file is changed, old positions are no longer correct.
 - SQLite is fine for one researcher, not for many people writing at once.
 
 ## Use of AI
 
-I used Claude (an AI assistant) to help plan the project, write a first version of the code
+I used Claude to help plan the project, write a first version of the code
 and explain the concepts. I ran, tested and checked everything, and can explain every part.

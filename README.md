@@ -119,12 +119,23 @@ that compares words cannot match those. Even the loosest settings only find abou
 | `SEED_SIZE = 4` | 4 is the best value. With 2 or 3 the program finds more, but many matches are wrong (only 20% and 57% correct). With 5 or more it misses edited passages. | Keep 4 |
 | `MAX_GAP = 20` | Values from 10 to 60 score almost the same on the practice test. At 60, separate passages get glued together (618 matches become 350), so fewer real parallels are found. | Keep 20 |
 | `MIN_WORDS = 8` | 10 is 1 point better on the practice test but finds fewer real parallels. 4 is far too low: almost 7,000 matches, mostly short common phrases. | Keep 8 |
-| `MIN_SCORE = 0.5` | The practice test likes 0.7 slightly more, but on the real Gospels 0.7 finds fewer known parallels (61% instead of 68%). | Keep 0.5 |
-| `MAX_COMMON = 25` | The practice test likes 1, but on the real Gospels it finds fewer known parallels (64% instead of 68%). | Keep 25 |
+| `MIN_SCORE = 0.5` | On the practice test, the value 0.7 got the best score (91% instead of 89%). But on the real Gospels, 0.7 finds fewer known parallels (61% instead of 68%). | Keep 0.5 |
+| `MAX_COMMON = 25` | On the practice test, the value 1 got the best score (92% instead of 89%), because it ignores every repeated phrase. But on the real Gospels it finds fewer known parallels (64% instead of 68%). | Keep 25 |
 
 **Conclusion:** the current settings are a good balance, so I kept them. For two settings (MIN_SCORE and
 MAX_COMMON) the two tests disagreed: the practice test preferred stricter values, the real Gospels preferred
 looser ones. Real authors change wording in more ways than my random edits do, so I followed the real texts.
+
+## Extra features (and why)
+
+- **Verse references** (e.g. "Matthew 3:3"): readers think in verses, not character positions.
+- **Orange highlighting of different words**: in a near match you can see right away which words changed.
+- **Overview of parallels per pair of books**: shows which Gospels are closest (Matthew–Mark 237, Matthew–Luke 226, Mark–Luke 155; John has far fewer: 60, 29 and 23, as scholars expect).
+- **"Compared with" filter**: to study one pair of books at a time.
+- **Click a row to compare**: faster than typing an ID.
+- **Confirm / Reject buttons**: a person can review results, and running the detection again never erases a review.
+- **CSV download**: to use the results in Excel or other tools.
+- **Settings benchmark** (`benchmark.py`): tests each setting on a practice test and against 455 known parallels from Aland's Synopsis, so the chosen values are backed by numbers, not guesses.
 
 ## Limitations
 

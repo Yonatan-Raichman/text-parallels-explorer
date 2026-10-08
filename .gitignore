@@ -1,5 +1,6 @@
 parallels.db
 benchmark_report.html
+benchmark_results.csv
 data/
 __pycache__/
 .venv/

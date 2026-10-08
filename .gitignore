@@ -1,0 +1,4 @@
+parallels.db
+data/
+__pycache__/
+.venv/

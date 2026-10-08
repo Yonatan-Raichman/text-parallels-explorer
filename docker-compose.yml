@@ -1,0 +1,7 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8501:8501"      # open http://localhost:8501 in your browser
+    volumes:
+      - ./data:/data     # the database file is saved in the "data" folder on your computer

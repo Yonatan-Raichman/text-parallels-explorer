@@ -1,33 +1,3 @@
-"""Benchmark: how does each setting at the top of matcher.py change the quality of the results?
-
-Run it with:     python benchmark.py            (full run, a few minutes)
-         or:     python benchmark.py --quick    (fewer test passages, faster, rougher numbers)
-
-It writes two files:
-    benchmark_report.html   - open it in your browser: charts + explanations
-    benchmark_results.csv   - all the numbers, e.g. for Excel
-
-Uses only the Python standard library (nothing to install).
-
-HOW QUALITY IS MEASURED - two tests:
-
-1. Test set with planted passages (exact answers known).
-   We take a real Gospel as text A. We build a text B out of shuffled 2-5 word scraps of a
-   different Gospel (realistic words, but no real shared passages), and copy ("plant") passages
-   from A into B. Some are copied exactly, others with 10-40% of the words changed, deleted or
-   added. Because we planted them, we know exactly where every true parallel is, so we can count:
-     precision = of the parallels the program reports, how many are real (planted)?
-     recall    = of the planted parallels, how many did the program find?
-     F1        = one number combining both (high only if both are high)
-     boundary fit = how well the reported start/end match the planted start/end (1 = perfect)
-
-2. The real Gospels with a list of known parallels (gold_parallels.csv, made from Kurt Aland's
-   Synopsis by gold/make_gold.py). We count how many of these known parallels are found.
-   Some of them are the same story told in quite different words, which no word-matching program
-   can find, so 100% is not expected. Use it to compare settings with each other.
-
-Each setting is changed on its own, with all other settings at their current values.
-"""
 import csv
 import json
 import random

@@ -31,24 +31,56 @@ Matthew, Mark, and Luke tell many of the same stories about Jesus, often using s
 
 ## Algorithm
 
-1. **Split the two Gospels into words.**  
-   Each Gospel is cleaned into a list of lowercase words, while the original character position of every word is also saved. These positions are needed later so the matched passage can be located and highlighted in the original text.
+The program compares two texts (for example two Gospels) in five steps.
 
-2. **Find seeds using a sliding window.**  
-   Both Gospels are searched for **seeds**, where a seed is a sequence of **4 consecutive identical words**. A 4-word sliding window moves through the texts and compares the phrases. When the same 4-word phrase appears in both texts, its **starting word position in each Gospel** is saved as a seed, for example `(100, 250)`. Phrases that appear **more than 25 times** in the second text are ignored because they are too common to be useful evidence of a meaningful parallel.
+1. **Split both texts into words.**  
+   Each text is turned into a list of lowercase words. Punctuation and numbers are dropped, so verse
+   numbers like `3:1` are ignored. For every word, its original character position in the text is
+   also saved. These positions are needed later to locate and highlight the matched passage in the
+   original text.
 
-3. **Group nearby seeds into larger passages.**  
-   Seeds that occur close to each other in **both Gospels** are grouped together. A new seed can join a group only if it is no more than **20 words after the previous seed in both texts**. This allows the algorithm to connect several small exact matches into one larger passage, even if some words between the seeds are different. If a seed is too far away to join an existing group, it starts a new group.
+2. **Find seeds: 4-word phrases that appear in both texts.**  
+   A **seed** is a sequence of **4 consecutive words** that appears in both texts. To find them
+   quickly, the program first puts every 4-word phrase of the second text into a dictionary
+   (phrase → the positions where it appears). It then goes through the first text one 4-word phrase
+   at a time and looks each phrase up in the dictionary, which is instant. Every hit is saved as a
+   seed: a pair of word positions, for example `(100, 250)`, meaning "the phrase starting at word 100
+   in text A also starts at word 250 in text B". Phrases that appear **more than 25 times** in the
+   second text are skipped, because they are too common (like "and he said unto") to be useful
+   evidence of a real parallel.
 
-4. **Build and evaluate the complete passage.**  
-   The first and last seeds in each group are used to determine the full passage in both Gospels. The passages are then given a similarity score using `SequenceMatcher`:
+3. **Group nearby seeds into passages.**  
+   Seeds that are close to each other in **both texts** are joined into one group. A seed can join a
+   group only if it comes **after** the group's last seed, and **no more than 20 words after it, in
+   both texts**. This connects several small exact matches into one longer passage, even if some words
+   between them are different. That is what makes near matches possible. A seed that cannot join any
+   group starts a new one.
 
-                 2 × matching words in order
+4. **Measure how similar each passage is.**  
+   Each group becomes a passage: from the first seed to the end of the last seed (the last seed's
+   start plus its 4 words), in both texts. The two versions of the passage are then compared with
+   `SequenceMatcher` from Python's `difflib` library:
+
+```
+            2 × words that match, in the same order
    score = -----------------------------------------
             words in passage A + words in passage B
+```
 
-The similarity score is calculated using `SequenceMatcher` because an exact comparison would be too strict. Parallel passages may contain small wording differences while still being clearly related. The score measures how much of the two passages matches in the same order while taking the length of both passages into account. This produces a normalized value between `0` and `1`, where `1` means the passages are identical. Using both passage lengths also prevents a short passage contained inside a much longer passage from incorrectly receiving a perfect score.
+   The score is between `0` (nothing in common) and `1` (identical). For example, Mark 1:3 and
+   John 1:23 share 13 of 15 words in order: 2 × 13 ÷ (15 + 15) = **0.87**.
 
+   An exact comparison would be too strict, because real parallels often differ in a few words. This
+   score shows how much of the two passages matches, in order. Because it counts the length of
+   **both** passages, a short passage inside a much longer one does not get a perfect score. For
+   example, 10 matching words inside a 30-word passage score 2 × 10 ÷ (10 + 30) = 0.5, not 1.
+
+5. **Filter and save the results.**  
+   Passages shorter than **8 words** or with a score below **0.5** are thrown away. A score of `1`
+   is labelled **exact**, anything lower **near**. If two passages overlap in both texts, only the
+   longer one is kept. Finally, the word positions are converted back into **character positions**
+   in the original texts, and these are what is saved in the database.
+   
 ## How good is it? Testing the settings
 
 The algorithm has five settings at the top of `matcher.py` (for example `SEED_SIZE = 4`). I didn't want to

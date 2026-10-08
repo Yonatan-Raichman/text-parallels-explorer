@@ -1,0 +1,372 @@
+# Kurt Aland, Synopsis Quattuor Evangeliorum (13th ed., 1985): table of pericopes (stories) and
+# their verse references. Copied from https://bible-researcher.com/parallels.html (also parallels2.html,
+# parallels3.html). Format: number | title | Matthew | Mark | Luke | John   (several references are
+# separated by spaces; 'a'/'b' mean the first/second half of a verse)
+
+1 | Prologue | 1.1 | 1.1 | 1.1-4 | 1.1-18
+2 | The Promise of the Birth of John the Baptist |  |  | 1.5-25 | 
+3 | The Annunciation |  |  | 1.26-38 | 
+4 | Mary's Visit to Elizabeth |  |  | 1.39-56 | 
+5 | The Birth of John the Baptist |  |  | 1.57-80 | 
+6 | The Genealogy of Jesus | 1.2-17 |  | 3.23-38 | 
+7 | The Birth of Jesus | 1.18-25 |  | 2.1-7 | 
+8 | The Adoration of the Infant Jesus | 2.1-12 |  | 2.8-20 | 
+9 | The Circumcision and Presentation in the Temple |  |  | 2.21-38 | 
+10 | The Flight into Egypt and Return | 2.13-21 |  |  | 
+11 | The Childhood of Jesus at Nazareth | 2.22-23 |  | 2.39-40 | 
+12 | The Boy Jesus in the Temple |  |  | 2.41-52 | 
+13 | John the Baptist | 3.1-6 | 1.2-6 | 3.1-6 | 1.19-23
+14 | John's Preaching of Repentance | 3.7-10 |  | 3.7-9 | 
+15 | John Replies to Questioners |  |  | 3.10-14 | 
+16 | John's Messianic Preaching | 3.11-12 | 1.7-8 | 3.15-18 | 1.24-28
+17 | The Imprisonment of John | 14.3-4 | 6.17-18 | 3.19-20 | 
+18 | The Baptism of Jesus | 3.13-17 | 1.9-11 | 3.21-22 | 1.29-34
+19 | The Genealogy of Jesus | 1.1-17 |  | 3.23-38 | 
+20 | The Temptation | 4.1-11 | 1.12-13 | 4.1-13 | 
+21 | The Call of the First Disciples |  |  |  | 1.35-51
+22 | The Marriage at Cana |  |  |  | 2.1-11
+23 | The Sojourn at Capernaum |  |  |  | 2.12
+24 | The First Journey to Jerusalem |  |  |  | 2.13
+25 | The Cleansing of the Temple | 21.12-13 | 11.15-17 | 19.45-46 | 2.14-22
+26 | Jesus' Ministry in Jerusalem |  |  |  | 2.23-25
+27 | The Discourse with Nicodemus |  |  |  | 3.1-21
+28 | Jesus' Ministry in Judea |  |  |  | 3.22
+29 | John's Testimony to Christ |  |  |  | 3.23-36
+30 | The Journey into Galilee | 4.12 | 1.14a | 4.14a | 4.1-3
+31 | The Discourse with the Woman of Samaria |  |  |  | 4.4-42
+32 | Ministry in Galilee | 4.13-17 | 1.14b-15 | 4.14b-15 | 4.43-46a
+33 | Jesus' Preaching at Nazareth | 13.53-58 | 6.1-6a | 4.16-30 | 
+34 | The Call of the Disciples | 4.18-22 | 1.16-20 |  | 
+35 | Teaching in the Synagogue at Capernaum |  | 1.21-22 | 4.31-32 | 
+36 | The Healing of the Demoniac in the Synagogue |  | 1.23-28 | 4.33-37 | 
+37 | The Healing of Peter's Mother-in-law | 8.14-15 | 1.29-31 | 4.38-39 | 
+38 | The Sick Healed at Evening | 8.16-17 | 1.32-34 | 4.40-41 | 
+39 | Jesus Departs from Capernaurn |  | 1.35-38 | 4.42-43 | 
+40 | First Preaching Tour in Galilee | 4.23 | 1.39 | 4.44 | 
+41 | The Miraculous Draught of Fish |  |  | 5.1-11 | 
+42 | The Cleansing of the Leper | 8.1-4 | 1.40-45 | 5.12-16 | 
+43 | The Healing of the Paralytic | 9.1-8 | 2.1-12 | 5.17-26 | 5.8-9a
+44 | The Call of Levi (Matthew) | 9.9-13 | 2.13-17 | 5.27-32 | 
+45 | The Question about Fasting | 9.14-17 | 2.18-22 | 5.33-39 | 
+46 | Plucking Grain on the Sabbath | 12.1-8 | 2.23-28 | 6.1-5 | 
+47 | The Man with the Withered Hand | 12.9-14 | 3.1-6 | 6.6-11 | 
+48 | Jesus Heals Multitudes by the Sea | 4.24-25 12.15-16 | 3.7-12 | 6.17-19 | 
+49 | The Choosing of the Twelve | 10.1-4 | 3.13-19 | 6.12-16 | 
+50 | Occasion of the Sermon | 4.24-5.2 | 3.7-13 a | 6.17-20a | 
+51 | The Beatitudes | 5.3-12 |  | 6.20b-23 | 
+52 | The Salt of the Earth | 5.13 | 9.49-50 | 14.34-35 | 
+53 | The Light of the World | 5.14-16 | 4.21 | 8.16 | 
+54 | On the Law and the Prophets | 5.17-20 |  | 16.16-17 | 
+55 | On Murder and Wrath | 5.21-26 |  | 12.57-59 | 
+56 | On Adultery and Divorce | 5.27-32 | 9.43-48 | 16.18 | 
+57 | On Oaths | 5.33-37 |  |  | 
+58 | On Retaliation | 5.38-42 |  | 6.29-30 | 
+59 | On Love of One's Enemies | 5.43-48 |  | 6.27-28 6.32-36 | 
+60 | On Almsgiving | 6.1-4 |  |  | 
+61 | On Prayer | 6.5-6 |  |  | 
+62 | The Lord's Prayer | 6.7-15 | 11.25 | 11.1-4 | 
+63 | On Fasting | 6.16-18 |  |  | 
+64 | On Treasures | 6.19-21 |  | 12.33-34 | 
+65 | The Sound Eye | 6.22-23 |  | 11.34-36 | 
+66 | On Serving Two Masters | 6.24 |  | 16.13 | 
+67 | On Anxiety | 6.25-34 |  | 12.22-32 | 
+68 | On Judging | 7.1-5 | 4.24-25 | 6.37-42 | 
+69 | On Profaning the Holy | 7.6 |  |  | 
+70 | God's Answering of Prayer | 7.7-11 |  | 11.9-13 | 
+71 | The Golden Rule | 7.12 |  | 6.31 | 
+72 | The Two Ways | 7.13-14 |  | 13.23-24 | 
+73 | "By their Fruits" | 7.15-20 12.33-35 |  | 6.43-45 | 
+74 | "Saying Lord, Lord" | 7.21-23 |  | 6.46 13.25-27 | 
+75 | The House Built upon the Rock | 7.24-27 |  | 6.47-49 | 
+76 | The Effect of the Sermon | 7.28-29 | 1.21-22 |  | 
+77 | Occasion of the Sermon | 4.24-5.2 | 3.7-13a | 6.17-20a | 
+78 | The Beatitudes | 5.3-12 |  | 6.20b-23 | 
+79 | The Woes |  |  | 6.24-26 | 
+80 | On Love of One's Enemies | 5.38-48 |  | 6.27-36 | 
+81 | On Judging | 7.1-5 | 4.24-25 | 6.37-42 | 
+82 | "By their Fruits" | 7.15-20 12.33-35 |  | 6.43-45 | 
+83 | The House Built upon the Rock | 7.21-27 |  | 6.46-49 | 
+84 | Cleansing of the Leper | 8.1-4 | 1.40-45 | 5.12-16 | 
+85 | The Centurion of Capernaum | 8.5-13 | 7.30 | 7.1-10 13.28-29 | 4.46b-54
+86 | The Widow's Son at Nain |  |  | 7.11-17 | 
+87 | The Healing of Peter's Mother-in-law | 8.14-15 | 1.29-31 | 4.38-39 | 
+88 | The Sick Healed at Evening | 8.16-17 | 1.32-34 | 4.40-41 | 
+89 | On Following Jesus | 8.18-22 |  | 9.57-62 | 
+90 | Stilling the Storm | 8.23-27 | 4.35-41 | 8.22-25 | 
+91 | The Gadarene Demoniacs | 8.28-34 | 5.1-20 | 8.26-39 | 
+92 | The Healing of the Paralytic | 9.1-8 | 2.1-12 | 5.17-26 | 5.8-9a
+93 | The Call of Levi (Matthew) | 9.9-13 | 2.13-17 | 5.27-32 | 
+94 | The Question about Fasting | 9.14-17 | 2.18-22 | 5.33-39 | 
+95 | Jairus' Daughter and the Woman with a Hemorrhage | 9.18-26 | 5.21-43 | 8.40-56 | 
+96 | Two Blind Men | 9.27-31 20.29-34 | 10.46-52 | 18.35-43 | 
+97 | The Dumb Demoniac | 9.32-34 12.22-24 | 3.22 | 11.14-15 | 
+98 | The Harvest is Great | 9.35-38 | 6.6b 6.34 | 8.1 10.2 | 
+99 | Commissioning the Twelve | 10.1-16 | 6.7 3.13-19 6.8-11 | 9.1 6.12-16 9.2-5 10.3 | 
+100 | The Fate of the Disciples | 10.17-25 24.9-14 | 13.9-13 | 12.11-12 6.40 21.12-19 | 13.16
+101 | Exhortation to Fearless Confession | 10.26-33 |  | 12.2-9 | 
+102 | Divisions within Households | 10.34-36 |  | 12.51-53 | 
+103 | Conditions of Discipleship | 10.37-39 |  | 14.25-27 17.33 | 12.25
+104 | Rewards of Discipleship | 10.40-42 | 9.41 | 10.16 | 13.20
+105 | Continuation of Journey | 11.1 |  |  | 
+106 | John the Baptist's Question and Jesus' Answer | 11.2-6 |  | 7.18-23 | 
+107 | Jesus' Witness concerning John | 11.7-19 |  | 7.24-35 16.16 | 
+108 | Woes Pronounced on Galilean Cities | 11.20-24 |  | 10.12-15 | 
+109 | Jesus' Thanksgiving to the Father | 11.25-27 |  | 10.21-22 | 
+110 | "Come unto Me" | 11.28-30 |  |  | 
+111 | Plucking Grain on the Sabbath | 12.1-8 | 2.23-28 | 6.1-5 | 
+112 | Healing the Withered Hand | 12.9-14 | 3.1-6 | 6.6-11 | 
+113 | Jesus Heals Multitudes by the Sea | 12.15-21 | 3.7-12 | 6.17-19 | 
+114 | The Woman with the Ointment | 26.6-13 | 14.3-9 | 7.36-50 | 12.1-8
+115 | The Ministering Women |  |  | 8.1-3 | 
+116 | Jesus is Thought to be Beside Himself |  | 3.20-21 |  | 
+117 | On Collusion with Satan | 12.22-30 9.32-34 | 3.22-27 | 11.14-15 11.17-23 | 
+118 | The Sin against the Holy Spirit | 12.31-37 7.16-20 | 3.28-30 | 12.10 6.43-45 | 
+119 | The Sign of Jonah | 12.38-42 16.1-2a,4 | 8.11-12 | 11.16 11.29-32 | 
+120 | The Return of the Evil Spirit | 12.43-45 |  | 11.24-26 | 
+121 | Jesus' True Kindred | 12.46-50 | 3.31-35 | 8.19-21 | 15.14
+122 | The Parable of the Sower | 13.1-9 | 4.1-9 | 8.4-8 | 
+123 | The Reason for Speaking in Parables | 13.10-17 | 4.10-12 4.25 | 8.9-10 8.18b 10.23-24 | 
+124 | Interpretation of the Parable of the Sower | 13.18-23 | 4.13-20 | 8.11-15 | 
+125 | "He who has Ears to Hear, Let him Hear" | 5.15 10.26 7.2 13.12 | 4.21-25 | 8.16-18 | 
+126 | The Parable of the Seed Growing Secretly |  | 4.26-29 |  | 
+127 | The Parable of the Tares | 13.24-30 |  |  | 
+128 | The Parable of the Mustard Seed | 13.31-32 | 4.30-32 | 13.18-19 | 
+129 | The Parable of the Leaven | 13.33 |  | 13.20-21 | 
+130 | Jesus' Use of Parables | 13.34-35 | 4.33-34 |  | 
+131 | Interpretation of the Parable of the Tares | 13.36-43 |  |  | 
+132 | The Parables of the Hidden Treasure and of the Pearl | 13.44-46 |  |  | 
+133 | The Parable of the Net | 13.47-50 |  |  | 
+134 | Treasures New and Old | 13.51-52 |  |  | 
+135 | Jesus' True Kindred | 12.46-50 | 3.31-35 | 8.19-21 | 15.14
+136 | Stilling the Storm | 8.23-27 | 4.35-41 | 8.22-25 | 
+137 | The Gerasene Demoniac | 8.28-34 | 5.1-20 | 8.26-39 | 
+138 | Jairus' Daughter and the Woman with a Hemorrhage | 9.18-26 | 5.21-43 | 8.40-56 | 
+139 | Jesus is Rejected at Nazareth | 13.53-58 | 6.1-6a | 4.16-30 | 
+140 | Second Journey (to Jerusalem) |  |  |  | 5.1
+141 | The Healing at the Pool |  |  |  | 5.2-47
+142 | Commissioning the Twelve | 9.35 10.1,7-11,14 | 6.6b-13 | 9.1-6 | 
+143 | Opinions regarding Jesus | 14.1-2 | 6.14-16 | 9.7-9 | 
+144 | The Death of John the Baptist | 14.3-12 | 6.17-29 | 3.19-20 | 
+145 | The Return of the Apostles |  | 6.30-31 | 9.10a | 
+146 | Five Thousand are Fed | 14.13-21 | 6.32-44 | 9. 10b-17 | 6.1-15
+147 | The Walking on the Water | 14.22-33 | 6.45-52 |  | 6.16-21
+148 | Healings at Gennesaret | 14.34-36 | 6.53-56 |  | 6.22-25
+149 | The Bread of Life |  |  |  | 6.26-59
+150 | Defilement - Traditional and Real | 15.1-20 | 7.1-23 | 11.37-41 6.39 | 
+151 | The Syrophoenician (Canaanite) Woman | 15.21-28 | 7.24-30 |  | 
+152 | Jesus Heals a Deaf Mute and Many Others | 15.29-31 | 7.31-37 |  | 
+153 | Four Thousand are Fed | 15.32-39 | 8.1-10 |  | 
+154 | The Pharisees Seek a Sign | 16.1-4 12.38-39 | 8.11-13 | 11.16 12.54-56 11.29 | 
+155 | The Leaven of the Pharisees | 16.5-12 | 8.14-21 | 12.1 | 
+156 | A Blind Man is Healed at Bethsaida |  | 8.22-26 |  | 
+157 | Many Disciples Take Offense at Jesus |  |  |  | 6.60-66
+158 | Peter's Confession | 16.13-20 | 8.27-30 | 9.18-21 | 6.67-71
+159 | Jesus Foretells His Passion | 16.21-23 | 8.31-33 | 9.22 | 
+160 | "If Any Man would Come after Me" | 16.24-28 | 8.34-9.1 | 9.23-27 | 12.25
+161 | The Transfiguration | 17.1-9 | 9.2-10 | 9.28-36 | 
+162 | The Coming of Elijah | 17.10-13 | 9.11-13 |  | 
+163 | Jesus Heals a Boy Possessed by a Spirit | 17.14-21 | 9.14-29 | 9.37-43a 17.6 | 
+164 | Jesus Foretells His Passion again | 17.22-23 | 9.30-32 | 9.43b-45 | 
+165 | Payment of the Temple Tax | 17.24-27 |  |  | 
+166 | True Greatness | 18.1-5 | 9.33-37 | 9.46-48 | 13.20
+167 | The Strange Exorcist | 10.42 | 9.38-41 | 9.49-50 | 
+168 | Warnings concerning Temptations | 18.6-9 5.13 | 9.42-50 | 17.1-2 14.34-35 | 
+169 | The Parable of the Lost Sheep | 18.10-14 |  | 15.3-7 | 
+170 | On Reproving One's Brother | 18.15-18 |  | 17.3 | 20.23
+171 | "Where Two or Three are Gathered Together" | 18.19-20 |  |  | 
+172 | On Reconciliation | 18.21-22 |  | 17.4 | 
+173 | The Parable of the Unforgiving Servant | 18.23-35 |  |  | 
+174 | Decision to Go to Jerusalem | 19.1-2 | 10.1 | 9.51 | 
+175 | Jesus is Rejected by Samaritans |  |  | 9.52-56 | 
+176 | On Following Jesus | 8.18-22 |  | 9.57-62 | 
+177 | Commissioning the Seventy | 9.37-38 10.7-16 |  | 10.1-12 | 
+178 | Woes Pronounced on Galilaean Cities | 11.20-24 |  | 10.13-15 | 
+179 | "He who Hears You, Hears Me" | 10.40 |  | 10.16 | 13.20
+180 | The Return of the Seventy |  |  | 10.17-20 | 
+181 | Jesus' Thanksgiving to the Father, and the Blessedness of the Disciples | 11.25-27 13.16-17 |  | 10.21-24 | 
+182 | The Lawyer's Question | 22.34-40 | 12.28-34 | 10.25-28 | 
+183 | The Parable of the Good Samaritan |  |  | 10.29-37 | 
+184 | Mary and Martha |  |  | 10.38-42 | 
+185 | The Lord's Prayer | 6.9-13 |  | 11.1-4 | 
+186 | The Importunate Friend at Midnight |  |  | 11.5-8 | 
+187 | Encouragement to Pray | 7.7-11 |  | 11.9-13 | 
+188 | The Beelzebub Controversy | 12.22-30 | 3.22-27 | 11.14-23 | 
+189 | The Return of the Evil Spirit | 12.43-45 |  | 11.24-26 | 
+190 | True Blessedness |  |  | 11.27-28 | 
+191 | The Sign of Jonah | 12.38-42 | 8.11-12 | 11.29-32 | 
+192 | Concerning Light | 5.15 | 4.21 | 11.33 | 
+193 | The Sound Eye | 6.22-23 |  | 11.34-36 | 
+194 | Discourses against the Pharisees and Lawyers | 15.1-9 | 7.1-9 | 11.37-54 | 
+195 | The Leaven of the Pharisees | 16.5-6 | 8.14-15 | 12.1 | 
+196 | Exhortation to Fearless Confession | 10.26-33 |  | 12.2-9 | 
+197 | The Sin against the Holy Spirit | 12.31-32 | 3.28-30 | 12.10 | 
+198 | The Assistance of the Holy Spirit | 10.19-20 | 13.11 | 12.11-12 21.14-15 | 
+199 | Warning against Avarice |  |  | 12.13-15 | 
+200 | The Parable of the Rich Fool |  |  | 12.16-21 | 
+201 | Anxieties about Earthly Things | 6.25-34 |  | 12.22-32 | 
+202 | Treasures in Heaven | 6.19-21 |  | 12.33-34 | 
+203 | Watchfulness and Faithfulness | 24.42-51 |  | 12.35-48 | 
+204 | Division in Households | 10.34-36 |  | 12.49-53 | 
+205 | Interpreting the Times | 16.2-3 |  | 12.54-56 | 
+206 | Agreement with One's Accuser | 5.25-26 |  | 12.57-59 | 
+207 | Repentance or Destruction (the Parable of the Barren Fig Tree) |  |  | 13.1-9 | 
+208 | The Healing of the Crippled Woman on the Sabbath |  |  | 13.10-17 | 
+209 | The Parable of the Mustard Seed | 13.31-32 | 4.30-32 | 13.18-19 | 
+210 | The Parable of the Leaven | 13.33 |  | 13.20-21 | 
+211 | Exclusion from the Kingdom | 7.13-14 7.22-23 8.11-12 19.30 | 10.31 | 13.22-30 | 
+212 | A Warning against Herod |  |  | 13.31-33 | 
+213 | The Lament over Jerusalem | 23.37-39 |  | 13.34-35 | 
+214 | The Healing of the Man with Dropsy |  |  | 14.1-6 | 
+215 | Teaching on Humility |  |  | 14.7-14 | 
+216 | The Parable of the Great Supper | 22.1-14 |  | 14.15-24 | 
+217 | The Conditions of Discipleship | 10.37-38 |  | 14.25-33 | 
+218 | The Parable of Salt | 5.13 | 9.49-50 | 14.34-35 | 
+219 | The Parable of the Lost Sheep | 18.12-14 |  | 15.1-7 | 
+220 | The Parable of the Lost Coin |  |  | 15.8-10 | 
+221 | The Parable of the Prodigal Son |  |  | 15.11-32 | 
+222 | The Parable of the Unjust Steward |  |  | 16.1-9 | 
+223 | On Faithfulness in What is Least |  |  | 16.10-12 | 
+224 | On Serving Two Masters | 6.24 |  | 16.13 | 
+225 | The Pharisees Reproved |  |  | 16.14-15 | 
+226 | Concerning the Law | 11.12-13 5.18 |  | 16.16-17 | 
+227 | Concerning Divorce | 19.9 | 10.11-12 | 16.18 | 
+228 | The Parable of the Rich Man and Lazarus |  |  | 16.19-31 | 
+229 | Warning against Offenses | 18.6-7 | 9.42 | 17.1-3a | 
+230 | On Forgiveness | 18.15 |  | 17.3b-4 | 
+231 | On Faith | 17.19-21 | 9.28-29 | 17.5-6 | 
+232 | We are Unprofitable Servants |  |  | 17.7-10 | 
+233 | The Cleansing of the Ten Lepers |  |  | 17.11-19 | 
+234 | On the Coming of the Kingdom of God |  |  | 17.20-21 | 
+235 | The Day of the Son of Man | 24.23 24.26-27 24.37-39 24.17-18 10.39 24.40-41 24.28 | 13.19-23 13.14-16 | 17.22-37 | 12.25
+236 | The Parable of the Unjust Judge |  |  | 18.1-8 | 
+237 | The Pharisee and the Publican |  |  | 18.9-14 | 
+238 | Jesus Remains in Galilee |  |  |  | 7.1-9
+239 | Journey to Jerusalem in Secret |  |  |  | 7.10-13
+240 | Teaching in the Temple |  |  |  | 7.14-39
+241 | Division among the People regarding Jesus |  |  |  | 7.40-52
+242 | The Woman Caught in Adultery |  |  |  | 7.53-8.11
+243 | "I am the Light of the World" |  |  |  | 8.12-20
+244 | Discussion with the Jews |  |  |  | 8.21-29
+245 | "The Truth will Make You Free" |  |  |  | 8.30-36
+246 | Children of the Devil |  |  |  | 8.37-47
+247 | "Before Abraham was, I am" |  |  |  | 8.48-59
+248 | Jesus Heals the Man Born Blind |  |  |  | 9.1-41
+249 | "I am the Good Shepherd" |  |  |  | 10.1-18
+250 | Division among the Jews again |  |  |  | 10.19-21
+251 | Departure to Judea | 19.1-2 | 10.1 | 9.51 | 
+252 | On Divorce and Celibacy | 19.3-12 | 10.2-12 | 16.18 | 
+253 | Jesus Blesses the Children | 19.13-15 | 10.13-16 | 18.15-17 | 
+254 | The Rich Young Man | 19.16-22 | 10.17-22 | 18.18-23 | 
+255 | On Riches and the Rewards of Discipleship | 19.23-30 | 10.23-31 | 18.24-30 22.28-30 | 
+256 | The Parable of the Laborers in the Vineyard | 20.1-16 | 10.31 | 13.30 | 
+257 | Jesus at the Feast of Dedication in Jerusalem |  |  |  | 10.22-39
+258 | Jesus Withdraws across the Jordan |  |  |  | 10.40-42
+259 | The Raising of Lazarus |  |  |  | 11.1-44
+260 | The Chief Priests and Pharisees Take Counsel against Jesus |  |  |  | 11.45-53
+261 | Jesus Retires to Ephraim |  |  |  | 11.54-57
+262 | The Third Prediction of the Passion | 20.17-19 | 10.32-34 | 18.31-34 | 
+263 | The Sons of Zebedee; Precedence among the Disciples | 20.20-28 | 10.35-45 | 22.24-27 | 
+264 | The Healing of the Blind Men (Bartimaeus) | 20.29-34 9.27-31 | 10.46-52 | 18.35-43 | 
+265 | Zacchaeus | 18.11 |  | 19.1-10 | 
+266 | The Parable of the Pounds | 25.14-30 | 13.34 | 19.11-27 | 
+267 | The Anointing at Bethany | 26.6-13 | 14.3-9 | 7.36-50 | 12.1-8
+268 | The Plot against Lazarus |  |  |  | 12.9-11
+269 | The Triumphal Entry | 21.1-9 | 11.1-10 | 19.28-40 | 12.12-19
+270 | Jesus Weeps over Jerusalem |  |  | 19.41-44 | 
+271 | Jesus in Jerusalem (Cleansing the Temple), Return to Bethany | 21.10-17 | 11.11 11.15-17 | 19.45-46 | 
+272 | The Cursing of the Fig Tree | 21.18-19 | 11.12-14 |  | 
+273 | The Cleansing of the Temple | 21.12-13 | 11.15-17 | 19.45-46 | 2.13-17
+274 | The Chief Priests and Scribes Conspire against Jesus |  | 11.18-19 | 19.47-48 | 
+275 | The Fig Tree is Withered | 21.20-22 6.14-15 | 11.20-26 |  | 
+276 | The Question about Authority | 21.23-27 | 11.27-33 | 20.1-8 | 
+277 | The Parable of the Two Sons | 21.28-32 |  |  | 
+278 | The Parable of the Wicked Husbandmen | 21.33-46 | 12.1-12 | 20.9-19 | 
+279 | The Parable of the Great Supper | 22.1-14 |  | 14.15-24 | 
+280 | On Paying Tribute to Caesar | 22.15-22 | 12.13-17 | 20.20-26 | 
+281 | The Question about the Resurrection | 22.23-33 | 12.18-27 | 20.27-40 | 
+282 | The Great Commandment | 22.34-40 | 12.28-34 | 10.25-28 | 
+283 | The Question about David's Son | 22.41-46 | 12.35-37a | 20.41-44 | 
+284 | Woe to the Scribes and Pharisees | 23.1-36 | 12.37b-40 | 20.45-47 | 
+285 | Jesus' Lament over Jerusalem | 23.37-39 |  | 13.34-35 | 
+286 | The Widow's Mite |  | 12.41-44 | 21.1-4 | 
+287 | Prediction of the Destruction of the Temple | 24.1-2 | 13.1-2 | 21.5-6 | 
+288 | Signs before the End | 24.3-8 | 13.3-8 | 21.7-11 | 
+289 | Persecutions Foretold | 24.9-14 10.17-22a | 13.9-13 | 21.12-19 12.11-12 | 
+290 | The Desolating Sacrilege | 24.15-22 | 13.14-20 | 21.20-24 | 
+291 | False Christs and False Prophets | 24.23-28 | 13.21-23 | 17.23-24 17.37b | 
+292 | The Coming of the Son of Man | 24.29-31 | 13.24-27 | 21.25-28 | 
+293 | The Time of the Coming: the Parable of the Fig Tree | 24.32-36 | 13.28-32 | 21.29-33 | 
+294 | Conclusion: "Take Heed, Watch!" (According to Mark) | 25.13-15 24.42 | 13.33-37 | 19.12-13 12.40 | 
+295 | Conclusion: "Take Heed, Watch!" (According to Luke) |  |  | 21.34-36 | 
+296 | The Parable of the Flood and Exhortation to Watchfulness | 24.37-44 | 13.35 | 17.26-36 12.39-40 | 
+297 | The Parable of the Good Servant and the Wicked Servant | 24.45-51 |  | 12.41-46 | 
+298 | The Parable of the Ten Virgins | 25.1-13 |  |  | 
+299 | The Parable of the Talents | 25.14-30 | 13.34 | 19.11-27 | 
+300 | The Last Judgment | 25.31-46 |  |  | 5.29
+301 | The Ministry of Jesus in Jerusalem |  |  | 21.37-38 | 
+302 | Greeks Seek Jesus; Discourse on His Death |  |  |  | 12.20-36
+303 | The Unbelief of the People |  |  |  | 12.37-43
+304 | Judgment by the Word |  |  |  | 12.44-50
+305 | Jesus' Death is Premeditated | 26.1-5 | 14.1-2 | 22.1-2 | 
+306 | The Anointing in Bethany | 26.6-13 | 14.3-9 | 7.36-50 | 12.1-8
+307 | The Betrayal by Judas | 26.14-16 | 14.10-11 | 22.3-6 | 
+308 | Preparation for the Passover | 26.17-20 | 14.12-17 | 22.7-14 | 
+309 | Washing the Disciples' Feet | 10.24 10.40 |  | 6.40 | 13.1-20
+310 | Jesus Foretells His Betrayal | 26.21-25 | 14.18-21 | 22.21-23 | 13.21-30
+311 | The Last Supper | 26.26-29 | 14.22-25 | 22.15-20 | 
+312 | Jesus Foretells His Betrayal | 26.21-25 | 14.18-21 | 22.21-23 | 13.21-30
+313 | Precedence among the Disciples and the Reward of Discipleship | 20.24-28 19.28 | 10.41-45 | 22.24-30 | 
+314 | The New Commandment of Love |  |  |  | 13.31-35
+315 | Peter's Denial Predicted | 26.30-35 | 14.26-31 | 22.31-34 | 13.36-38
+316 | The Two Swords |  |  | 22.35-38 | 
+317 | "Let Not Your Hearts be Troubled" |  |  |  | 14.1-14
+318 | The Promise of the Paraclete |  |  |  | 14.15-26
+319 | The Gift of Peace |  |  |  | 14.27-31
+320 | Jesus the True Vine |  |  |  | 15.1-8
+321 | "Abide in My Love" |  |  |  | 15.9-17
+322 | The World's Hatred |  |  |  | 15.18-25
+323 | The Witness of the Paraclete |  |  |  | 15.26-27
+324 | On Persecutions |  |  |  | 16.1-4
+325 | The Work of the Paraclete |  |  |  | 16.5-15
+326 | Sorrow Turned to Joy |  |  |  | 16.16-22
+327 | Prayer in the Name of Jesus |  |  |  | 16.23-28
+328 | Prediction of the Disciples' Flight |  |  |  | 16.29-33
+329 | The Intercessory Prayer |  |  |  | 17.1-26
+330 | Gethsemane | 26.36-46 | 14.32-42 | 22.39-46 | 18.1 12.27
+331 | Jesus Arrested | 26.47-56 | 14.43-52 | 22.47-53 | 18.2-12
+332 | Jesus before the Sanhedrin (Peter's Denial) | 26.57-68 | 14.53-65 | 22.54-71 | 18.13-24
+333 | Peter's Denial | 26.69-75 | 14.66-72 | 22.56-62 | 18.25-27
+334 | Jesus Delivered to Pilate | 27.1-2 | 15.1 | 23.1 | 18.28
+335 | The Death of Judas | 27.3-10 |  |  | 
+336 | The Trial before Pilate | 27.11-14 | 15.2-5 | 23.2-5 | 18.29-38
+337 | Jesus before Herod |  |  | 23.6-12 | 
+338 | Pilate Declares Jesus Innocent |  |  | 23.13-16 | 
+339 | Jesus or Barabbas? | 27.15-23 | 15.6-14 | 23.17-23 | 18.39-40
+340 | "Behold the Man!" | 27.28-31a | 15.17-20a |  | 19.1-15
+341 | Pilate Delivers Jesus to be Crucified | 27.24-26 | 15.15 | 23.24-25 | 19.16
+342 | Jesus Mocked by the Soldiers | 27.27-31a | 15.16-20a |  | 19.2-3
+343 | The Road to Golgotha | 27.31b-32 | 15.20b-21 | 23.26-32 | 19.17
+344 | The Crucifixion | 27.33-37 | 15.22-26 | 23.33-34 | 19.17b-27
+345 | Jesus Derided on the Cross | 27.38-43 | 15.27-32a | 23.35-38 | 
+346 | The Two Thieves | 27.44 | 15.32b | 23.39-43 | 
+347 | The Death of Jesus | 27.45-54 | 15.33-39 | 23.44-48 | 19.28-30
+348 | Witnesses of the Crucifixion | 27.55-56 | 15.40-41 | 23.49 | 19.25-27
+349 | Jesus' Side Pierced |  |  |  | 19.31-37
+350 | The Burial of Jesus | 27.57-61 | 15.42-47 | 23.50-56 | 19.38-42
+351 | The Guard at the Tomb | 27.62-66 |  |  | 
+352 | The Women at the Tomb | 28.1-8 | 16.1-8 | 24.1-12 | 20.1-13
+353 | Jesus Appears to the Women | 28.9-10 | 16.9-11 | 24.10-11 | 20.14-18
+354 | The Report of the Guard | 28.11-15 |  |  | 
+355 | Jesus Appears to Two on the Way to Emmaus |  | 16.12-13 | 24.13-35 | 
+356 | Jesus Appears to His Disciples (Thomas being Absent) |  |  | 24.36-43 | 20.19-23
+357 | Jesus Appears to His Disciples (Thomas being Present) |  |  |  | 20.24-29
+358 | Jesus Appears to the Eleven While They Sit at Table |  | 16.14-18 |  | 
+359 | Jesus Appears to the Eleven on a Mountain in Galilee | 28.16-20 |  |  | 
+360 | Jesus Appears to His Disciples by the Sea of Tiberias |  |  |  | 21.1-14
+361 | Paul's Account of the Appearances of Jesus |  | 1 Cor. 15.3-8 |  | 
+362 | The Shorter Ending of Mark |  | see note below |  | 
+363 | The Longer Ending of Mark |  | 16.9-20 |  | 
+364 | The Ending of Matthew: The Great Commission | 28.16-20 |  |  | 
+365 | The Ending of Luke: Jesus' Last Words and Ascension |  | 16.15,19 | 24.44-53 | 
+366 | The Ending of John |  |  |  | 20.30-31
+367 | The Appendix to John: Jesus at the Sea of Tiberias. |  |  |  | 21.1-25

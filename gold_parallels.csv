@@ -1,0 +1,604 @@
+story,book,first_verse,last_verse
+Aland 1: Prologue,matthew,1:1,1:1
+Aland 1: Prologue,mark,1:1,1:1
+Aland 1: Prologue,luke,1:1,1:4
+Aland 6: The Genealogy of Jesus,matthew,1:2,1:17
+Aland 6: The Genealogy of Jesus,luke,3:23,3:38
+Aland 7: The Birth of Jesus,matthew,1:18,1:25
+Aland 7: The Birth of Jesus,luke,2:1,2:7
+Aland 8: The Adoration of the Infant Jesus,matthew,2:1,2:12
+Aland 8: The Adoration of the Infant Jesus,luke,2:8,2:20
+Aland 11: The Childhood of Jesus at Nazareth,matthew,2:22,2:23
+Aland 11: The Childhood of Jesus at Nazareth,luke,2:39,2:40
+Aland 13: John the Baptist,matthew,3:1,3:6
+Aland 13: John the Baptist,mark,1:2,1:6
+Aland 13: John the Baptist,luke,3:1,3:6
+Aland 14: John's Preaching of Repentance,matthew,3:7,3:10
+Aland 14: John's Preaching of Repentance,luke,3:7,3:9
+Aland 16: John's Messianic Preaching,matthew,3:11,3:12
+Aland 16: John's Messianic Preaching,mark,1:7,1:8
+Aland 16: John's Messianic Preaching,luke,3:15,3:18
+Aland 17: The Imprisonment of John,matthew,14:3,14:4
+Aland 17: The Imprisonment of John,mark,6:17,6:18
+Aland 17: The Imprisonment of John,luke,3:19,3:20
+Aland 18: The Baptism of Jesus,matthew,3:13,3:17
+Aland 18: The Baptism of Jesus,mark,1:9,1:11
+Aland 18: The Baptism of Jesus,luke,3:21,3:22
+Aland 19: The Genealogy of Jesus,matthew,1:1,1:17
+Aland 19: The Genealogy of Jesus,luke,3:23,3:38
+Aland 20: The Temptation,matthew,4:1,4:11
+Aland 20: The Temptation,mark,1:12,1:13
+Aland 20: The Temptation,luke,4:1,4:13
+Aland 25: The Cleansing of the Temple,matthew,21:12,21:13
+Aland 25: The Cleansing of the Temple,mark,11:15,11:17
+Aland 25: The Cleansing of the Temple,luke,19:45,19:46
+Aland 30: The Journey into Galilee,matthew,4:12,4:12
+Aland 30: The Journey into Galilee,mark,1:14,1:14
+Aland 30: The Journey into Galilee,luke,4:14,4:14
+Aland 32: Ministry in Galilee,matthew,4:13,4:17
+Aland 32: Ministry in Galilee,mark,1:14,1:15
+Aland 32: Ministry in Galilee,luke,4:14,4:15
+Aland 33: Jesus' Preaching at Nazareth,matthew,13:53,13:58
+Aland 33: Jesus' Preaching at Nazareth,mark,6:1,6:6
+Aland 33: Jesus' Preaching at Nazareth,luke,4:16,4:30
+Aland 34: The Call of the Disciples,matthew,4:18,4:22
+Aland 34: The Call of the Disciples,mark,1:16,1:20
+Aland 35: Teaching in the Synagogue at Capernaum,mark,1:21,1:22
+Aland 35: Teaching in the Synagogue at Capernaum,luke,4:31,4:32
+Aland 36: The Healing of the Demoniac in the Synagogue,mark,1:23,1:28
+Aland 36: The Healing of the Demoniac in the Synagogue,luke,4:33,4:37
+Aland 37: The Healing of Peter's Mother-in-law,matthew,8:14,8:15
+Aland 37: The Healing of Peter's Mother-in-law,mark,1:29,1:31
+Aland 37: The Healing of Peter's Mother-in-law,luke,4:38,4:39
+Aland 38: The Sick Healed at Evening,matthew,8:16,8:17
+Aland 38: The Sick Healed at Evening,mark,1:32,1:34
+Aland 38: The Sick Healed at Evening,luke,4:40,4:41
+Aland 39: Jesus Departs from Capernaurn,mark,1:35,1:38
+Aland 39: Jesus Departs from Capernaurn,luke,4:42,4:43
+Aland 40: First Preaching Tour in Galilee,matthew,4:23,4:23
+Aland 40: First Preaching Tour in Galilee,mark,1:39,1:39
+Aland 40: First Preaching Tour in Galilee,luke,4:44,4:44
+Aland 42: The Cleansing of the Leper,matthew,8:1,8:4
+Aland 42: The Cleansing of the Leper,mark,1:40,1:45
+Aland 42: The Cleansing of the Leper,luke,5:12,5:16
+Aland 43: The Healing of the Paralytic,matthew,9:1,9:8
+Aland 43: The Healing of the Paralytic,mark,2:1,2:12
+Aland 43: The Healing of the Paralytic,luke,5:17,5:26
+Aland 44: The Call of Levi (Matthew),matthew,9:9,9:13
+Aland 44: The Call of Levi (Matthew),mark,2:13,2:17
+Aland 44: The Call of Levi (Matthew),luke,5:27,5:32
+Aland 45: The Question about Fasting,matthew,9:14,9:17
+Aland 45: The Question about Fasting,mark,2:18,2:22
+Aland 45: The Question about Fasting,luke,5:33,5:39
+Aland 46: Plucking Grain on the Sabbath,matthew,12:1,12:8
+Aland 46: Plucking Grain on the Sabbath,mark,2:23,2:28
+Aland 46: Plucking Grain on the Sabbath,luke,6:1,6:5
+Aland 47: The Man with the Withered Hand,matthew,12:9,12:14
+Aland 47: The Man with the Withered Hand,mark,3:1,3:6
+Aland 47: The Man with the Withered Hand,luke,6:6,6:11
+Aland 48: Jesus Heals Multitudes by the Sea,matthew,4:24,4:25
+Aland 48: Jesus Heals Multitudes by the Sea,matthew,12:15,12:16
+Aland 48: Jesus Heals Multitudes by the Sea,mark,3:7,3:12
+Aland 48: Jesus Heals Multitudes by the Sea,luke,6:17,6:19
+Aland 49: The Choosing of the Twelve,matthew,10:1,10:4
+Aland 49: The Choosing of the Twelve,mark,3:13,3:19
+Aland 49: The Choosing of the Twelve,luke,6:12,6:16
+Aland 50: Occasion of the Sermon,matthew,4:24,5:2
+Aland 50: Occasion of the Sermon,mark,3:7,3:13
+Aland 50: Occasion of the Sermon,luke,6:17,6:20
+Aland 51: The Beatitudes,matthew,5:3,5:12
+Aland 51: The Beatitudes,luke,6:20,6:23
+Aland 52: The Salt of the Earth,matthew,5:13,5:13
+Aland 52: The Salt of the Earth,mark,9:49,9:50
+Aland 52: The Salt of the Earth,luke,14:34,14:35
+Aland 53: The Light of the World,matthew,5:14,5:16
+Aland 53: The Light of the World,mark,4:21,4:21
+Aland 53: The Light of the World,luke,8:16,8:16
+Aland 54: On the Law and the Prophets,matthew,5:17,5:20
+Aland 54: On the Law and the Prophets,luke,16:16,16:17
+Aland 55: On Murder and Wrath,matthew,5:21,5:26
+Aland 55: On Murder and Wrath,luke,12:57,12:59
+Aland 56: On Adultery and Divorce,matthew,5:27,5:32
+Aland 56: On Adultery and Divorce,mark,9:43,9:48
+Aland 56: On Adultery and Divorce,luke,16:18,16:18
+Aland 58: On Retaliation,matthew,5:38,5:42
+Aland 58: On Retaliation,luke,6:29,6:30
+Aland 59: On Love of One's Enemies,matthew,5:43,5:48
+Aland 59: On Love of One's Enemies,luke,6:27,6:28
+Aland 59: On Love of One's Enemies,luke,6:32,6:36
+Aland 62: The Lord's Prayer,matthew,6:7,6:15
+Aland 62: The Lord's Prayer,mark,11:25,11:25
+Aland 62: The Lord's Prayer,luke,11:1,11:4
+Aland 64: On Treasures,matthew,6:19,6:21
+Aland 64: On Treasures,luke,12:33,12:34
+Aland 65: The Sound Eye,matthew,6:22,6:23
+Aland 65: The Sound Eye,luke,11:34,11:36
+Aland 66: On Serving Two Masters,matthew,6:24,6:24
+Aland 66: On Serving Two Masters,luke,16:13,16:13
+Aland 67: On Anxiety,matthew,6:25,6:34
+Aland 67: On Anxiety,luke,12:22,12:32
+Aland 68: On Judging,matthew,7:1,7:5
+Aland 68: On Judging,mark,4:24,4:25
+Aland 68: On Judging,luke,6:37,6:42
+Aland 70: God's Answering of Prayer,matthew,7:7,7:11
+Aland 70: God's Answering of Prayer,luke,11:9,11:13
+Aland 71: The Golden Rule,matthew,7:12,7:12
+Aland 71: The Golden Rule,luke,6:31,6:31
+Aland 72: The Two Ways,matthew,7:13,7:14
+Aland 72: The Two Ways,luke,13:23,13:24
+"Aland 73: ""By their Fruits""",matthew,7:15,7:20
+"Aland 73: ""By their Fruits""",matthew,12:33,12:35
+"Aland 73: ""By their Fruits""",luke,6:43,6:45
+"Aland 74: ""Saying Lord, Lord""",matthew,7:21,7:23
+"Aland 74: ""Saying Lord, Lord""",luke,6:46,6:46
+"Aland 74: ""Saying Lord, Lord""",luke,13:25,13:27
+Aland 75: The House Built upon the Rock,matthew,7:24,7:27
+Aland 75: The House Built upon the Rock,luke,6:47,6:49
+Aland 76: The Effect of the Sermon,matthew,7:28,7:29
+Aland 76: The Effect of the Sermon,mark,1:21,1:22
+Aland 80: On Love of One's Enemies,matthew,5:38,5:48
+Aland 80: On Love of One's Enemies,luke,6:27,6:36
+Aland 83: The House Built upon the Rock,matthew,7:21,7:27
+Aland 83: The House Built upon the Rock,luke,6:46,6:49
+Aland 85: The Centurion of Capernaum,matthew,8:5,8:13
+Aland 85: The Centurion of Capernaum,mark,7:30,7:30
+Aland 85: The Centurion of Capernaum,luke,7:1,7:10
+Aland 85: The Centurion of Capernaum,luke,13:28,13:29
+Aland 89: On Following Jesus,matthew,8:18,8:22
+Aland 89: On Following Jesus,luke,9:57,9:62
+Aland 90: Stilling the Storm,matthew,8:23,8:27
+Aland 90: Stilling the Storm,mark,4:35,4:41
+Aland 90: Stilling the Storm,luke,8:22,8:25
+Aland 91: The Gadarene Demoniacs,matthew,8:28,8:34
+Aland 91: The Gadarene Demoniacs,mark,5:1,5:20
+Aland 91: The Gadarene Demoniacs,luke,8:26,8:39
+Aland 95: Jairus' Daughter and the Woman with a Hemorrhage,matthew,9:18,9:26
+Aland 95: Jairus' Daughter and the Woman with a Hemorrhage,mark,5:21,5:43
+Aland 95: Jairus' Daughter and the Woman with a Hemorrhage,luke,8:40,8:56
+Aland 96: Two Blind Men,matthew,9:27,9:31
+Aland 96: Two Blind Men,matthew,20:29,20:34
+Aland 96: Two Blind Men,mark,10:46,10:52
+Aland 96: Two Blind Men,luke,18:35,18:43
+Aland 97: The Dumb Demoniac,matthew,9:32,9:34
+Aland 97: The Dumb Demoniac,matthew,12:22,12:24
+Aland 97: The Dumb Demoniac,mark,3:22,3:22
+Aland 97: The Dumb Demoniac,luke,11:14,11:15
+Aland 98: The Harvest is Great,matthew,9:35,9:38
+Aland 98: The Harvest is Great,mark,6:6,6:6
+Aland 98: The Harvest is Great,mark,6:34,6:34
+Aland 98: The Harvest is Great,luke,8:1,8:1
+Aland 98: The Harvest is Great,luke,10:2,10:2
+Aland 99: Commissioning the Twelve,matthew,10:1,10:16
+Aland 99: Commissioning the Twelve,mark,6:7,6:7
+Aland 99: Commissioning the Twelve,mark,3:13,3:19
+Aland 99: Commissioning the Twelve,mark,6:8,6:11
+Aland 99: Commissioning the Twelve,luke,9:1,9:1
+Aland 99: Commissioning the Twelve,luke,6:12,6:16
+Aland 99: Commissioning the Twelve,luke,9:2,9:5
+Aland 99: Commissioning the Twelve,luke,10:3,10:3
+Aland 100: The Fate of the Disciples,matthew,10:17,10:25
+Aland 100: The Fate of the Disciples,matthew,24:9,24:14
+Aland 100: The Fate of the Disciples,mark,13:9,13:13
+Aland 100: The Fate of the Disciples,luke,12:11,12:12
+Aland 100: The Fate of the Disciples,luke,6:40,6:40
+Aland 100: The Fate of the Disciples,luke,21:12,21:19
+Aland 101: Exhortation to Fearless Confession,matthew,10:26,10:33
+Aland 101: Exhortation to Fearless Confession,luke,12:2,12:9
+Aland 102: Divisions within Households,matthew,10:34,10:36
+Aland 102: Divisions within Households,luke,12:51,12:53
+Aland 103: Conditions of Discipleship,matthew,10:37,10:39
+Aland 103: Conditions of Discipleship,luke,14:25,14:27
+Aland 103: Conditions of Discipleship,luke,17:33,17:33
+Aland 104: Rewards of Discipleship,matthew,10:40,10:42
+Aland 104: Rewards of Discipleship,mark,9:41,9:41
+Aland 104: Rewards of Discipleship,luke,10:16,10:16
+Aland 106: John the Baptist's Question and Jesus' Answer,matthew,11:2,11:6
+Aland 106: John the Baptist's Question and Jesus' Answer,luke,7:18,7:23
+Aland 107: Jesus' Witness concerning John,matthew,11:7,11:19
+Aland 107: Jesus' Witness concerning John,luke,7:24,7:35
+Aland 107: Jesus' Witness concerning John,luke,16:16,16:16
+Aland 108: Woes Pronounced on Galilean Cities,matthew,11:20,11:24
+Aland 108: Woes Pronounced on Galilean Cities,luke,10:12,10:15
+Aland 109: Jesus' Thanksgiving to the Father,matthew,11:25,11:27
+Aland 109: Jesus' Thanksgiving to the Father,luke,10:21,10:22
+Aland 113: Jesus Heals Multitudes by the Sea,matthew,12:15,12:21
+Aland 113: Jesus Heals Multitudes by the Sea,mark,3:7,3:12
+Aland 113: Jesus Heals Multitudes by the Sea,luke,6:17,6:19
+Aland 114: The Woman with the Ointment,matthew,26:6,26:13
+Aland 114: The Woman with the Ointment,mark,14:3,14:9
+Aland 114: The Woman with the Ointment,luke,7:36,7:50
+Aland 117: On Collusion with Satan,matthew,12:22,12:30
+Aland 117: On Collusion with Satan,matthew,9:32,9:34
+Aland 117: On Collusion with Satan,mark,3:22,3:27
+Aland 117: On Collusion with Satan,luke,11:14,11:15
+Aland 117: On Collusion with Satan,luke,11:17,11:23
+Aland 118: The Sin against the Holy Spirit,matthew,12:31,12:37
+Aland 118: The Sin against the Holy Spirit,matthew,7:16,7:20
+Aland 118: The Sin against the Holy Spirit,mark,3:28,3:30
+Aland 118: The Sin against the Holy Spirit,luke,12:10,12:10
+Aland 118: The Sin against the Holy Spirit,luke,6:43,6:45
+Aland 119: The Sign of Jonah,matthew,12:38,12:42
+Aland 119: The Sign of Jonah,matthew,16:1,16:2
+Aland 119: The Sign of Jonah,matthew,16:4,16:4
+Aland 119: The Sign of Jonah,mark,8:11,8:12
+Aland 119: The Sign of Jonah,luke,11:16,11:16
+Aland 119: The Sign of Jonah,luke,11:29,11:32
+Aland 120: The Return of the Evil Spirit,matthew,12:43,12:45
+Aland 120: The Return of the Evil Spirit,luke,11:24,11:26
+Aland 121: Jesus' True Kindred,matthew,12:46,12:50
+Aland 121: Jesus' True Kindred,mark,3:31,3:35
+Aland 121: Jesus' True Kindred,luke,8:19,8:21
+Aland 122: The Parable of the Sower,matthew,13:1,13:9
+Aland 122: The Parable of the Sower,mark,4:1,4:9
+Aland 122: The Parable of the Sower,luke,8:4,8:8
+Aland 123: The Reason for Speaking in Parables,matthew,13:10,13:17
+Aland 123: The Reason for Speaking in Parables,mark,4:10,4:12
+Aland 123: The Reason for Speaking in Parables,mark,4:25,4:25
+Aland 123: The Reason for Speaking in Parables,luke,8:9,8:10
+Aland 123: The Reason for Speaking in Parables,luke,8:18,8:18
+Aland 123: The Reason for Speaking in Parables,luke,10:23,10:24
+Aland 124: Interpretation of the Parable of the Sower,matthew,13:18,13:23
+Aland 124: Interpretation of the Parable of the Sower,mark,4:13,4:20
+Aland 124: Interpretation of the Parable of the Sower,luke,8:11,8:15
+"Aland 125: ""He who has Ears to Hear, Let him Hear""",matthew,5:15,5:15
+"Aland 125: ""He who has Ears to Hear, Let him Hear""",matthew,10:26,10:26
+"Aland 125: ""He who has Ears to Hear, Let him Hear""",matthew,7:2,7:2
+"Aland 125: ""He who has Ears to Hear, Let him Hear""",matthew,13:12,13:12
+"Aland 125: ""He who has Ears to Hear, Let him Hear""",mark,4:21,4:25
+"Aland 125: ""He who has Ears to Hear, Let him Hear""",luke,8:16,8:18
+Aland 128: The Parable of the Mustard Seed,matthew,13:31,13:32
+Aland 128: The Parable of the Mustard Seed,mark,4:30,4:32
+Aland 128: The Parable of the Mustard Seed,luke,13:18,13:19
+Aland 129: The Parable of the Leaven,matthew,13:33,13:33
+Aland 129: The Parable of the Leaven,luke,13:20,13:21
+Aland 130: Jesus' Use of Parables,matthew,13:34,13:35
+Aland 130: Jesus' Use of Parables,mark,4:33,4:34
+Aland 142: Commissioning the Twelve,matthew,9:35,9:35
+Aland 142: Commissioning the Twelve,matthew,10:1,10:1
+Aland 142: Commissioning the Twelve,matthew,10:7,10:11
+Aland 142: Commissioning the Twelve,matthew,10:14,10:14
+Aland 142: Commissioning the Twelve,mark,6:6,6:13
+Aland 142: Commissioning the Twelve,luke,9:1,9:6
+Aland 143: Opinions regarding Jesus,matthew,14:1,14:2
+Aland 143: Opinions regarding Jesus,mark,6:14,6:16
+Aland 143: Opinions regarding Jesus,luke,9:7,9:9
+Aland 144: The Death of John the Baptist,matthew,14:3,14:12
+Aland 144: The Death of John the Baptist,mark,6:17,6:29
+Aland 144: The Death of John the Baptist,luke,3:19,3:20
+Aland 145: The Return of the Apostles,mark,6:30,6:31
+Aland 145: The Return of the Apostles,luke,9:10,9:10
+Aland 146: Five Thousand are Fed,matthew,14:13,14:21
+Aland 146: Five Thousand are Fed,mark,6:32,6:44
+Aland 146: Five Thousand are Fed,luke,9:10,9:17
+Aland 147: The Walking on the Water,matthew,14:22,14:33
+Aland 147: The Walking on the Water,mark,6:45,6:52
+Aland 148: Healings at Gennesaret,matthew,14:34,14:36
+Aland 148: Healings at Gennesaret,mark,6:53,6:56
+Aland 150: Defilement - Traditional and Real,matthew,15:1,15:20
+Aland 150: Defilement - Traditional and Real,mark,7:1,7:23
+Aland 150: Defilement - Traditional and Real,luke,11:37,11:41
+Aland 150: Defilement - Traditional and Real,luke,6:39,6:39
+Aland 151: The Syrophoenician (Canaanite) Woman,matthew,15:21,15:28
+Aland 151: The Syrophoenician (Canaanite) Woman,mark,7:24,7:30
+Aland 152: Jesus Heals a Deaf Mute and Many Others,matthew,15:29,15:31
+Aland 152: Jesus Heals a Deaf Mute and Many Others,mark,7:31,7:37
+Aland 153: Four Thousand are Fed,matthew,15:32,15:39
+Aland 153: Four Thousand are Fed,mark,8:1,8:10
+Aland 154: The Pharisees Seek a Sign,matthew,16:1,16:4
+Aland 154: The Pharisees Seek a Sign,matthew,12:38,12:39
+Aland 154: The Pharisees Seek a Sign,mark,8:11,8:13
+Aland 154: The Pharisees Seek a Sign,luke,11:16,11:16
+Aland 154: The Pharisees Seek a Sign,luke,12:54,12:56
+Aland 154: The Pharisees Seek a Sign,luke,11:29,11:29
+Aland 155: The Leaven of the Pharisees,matthew,16:5,16:12
+Aland 155: The Leaven of the Pharisees,mark,8:14,8:21
+Aland 155: The Leaven of the Pharisees,luke,12:1,12:1
+Aland 158: Peter's Confession,matthew,16:13,16:20
+Aland 158: Peter's Confession,mark,8:27,8:30
+Aland 158: Peter's Confession,luke,9:18,9:21
+Aland 159: Jesus Foretells His Passion,matthew,16:21,16:23
+Aland 159: Jesus Foretells His Passion,mark,8:31,8:33
+Aland 159: Jesus Foretells His Passion,luke,9:22,9:22
+"Aland 160: ""If Any Man would Come after Me""",matthew,16:24,16:28
+"Aland 160: ""If Any Man would Come after Me""",mark,8:34,9:1
+"Aland 160: ""If Any Man would Come after Me""",luke,9:23,9:27
+Aland 161: The Transfiguration,matthew,17:1,17:9
+Aland 161: The Transfiguration,mark,9:2,9:10
+Aland 161: The Transfiguration,luke,9:28,9:36
+Aland 162: The Coming of Elijah,matthew,17:10,17:13
+Aland 162: The Coming of Elijah,mark,9:11,9:13
+Aland 163: Jesus Heals a Boy Possessed by a Spirit,matthew,17:14,17:21
+Aland 163: Jesus Heals a Boy Possessed by a Spirit,mark,9:14,9:29
+Aland 163: Jesus Heals a Boy Possessed by a Spirit,luke,9:37,9:43
+Aland 163: Jesus Heals a Boy Possessed by a Spirit,luke,17:6,17:6
+Aland 164: Jesus Foretells His Passion again,matthew,17:22,17:23
+Aland 164: Jesus Foretells His Passion again,mark,9:30,9:32
+Aland 164: Jesus Foretells His Passion again,luke,9:43,9:45
+Aland 166: True Greatness,matthew,18:1,18:5
+Aland 166: True Greatness,mark,9:33,9:37
+Aland 166: True Greatness,luke,9:46,9:48
+Aland 167: The Strange Exorcist,matthew,10:42,10:42
+Aland 167: The Strange Exorcist,mark,9:38,9:41
+Aland 167: The Strange Exorcist,luke,9:49,9:50
+Aland 168: Warnings concerning Temptations,matthew,18:6,18:9
+Aland 168: Warnings concerning Temptations,matthew,5:13,5:13
+Aland 168: Warnings concerning Temptations,mark,9:42,9:50
+Aland 168: Warnings concerning Temptations,luke,17:1,17:2
+Aland 168: Warnings concerning Temptations,luke,14:34,14:35
+Aland 169: The Parable of the Lost Sheep,matthew,18:10,18:14
+Aland 169: The Parable of the Lost Sheep,luke,15:3,15:7
+Aland 170: On Reproving One's Brother,matthew,18:15,18:18
+Aland 170: On Reproving One's Brother,luke,17:3,17:3
+Aland 172: On Reconciliation,matthew,18:21,18:22
+Aland 172: On Reconciliation,luke,17:4,17:4
+Aland 174: Decision to Go to Jerusalem,matthew,19:1,19:2
+Aland 174: Decision to Go to Jerusalem,mark,10:1,10:1
+Aland 174: Decision to Go to Jerusalem,luke,9:51,9:51
+Aland 177: Commissioning the Seventy,matthew,9:37,9:38
+Aland 177: Commissioning the Seventy,matthew,10:7,10:16
+Aland 177: Commissioning the Seventy,luke,10:1,10:12
+Aland 178: Woes Pronounced on Galilaean Cities,matthew,11:20,11:24
+Aland 178: Woes Pronounced on Galilaean Cities,luke,10:13,10:15
+"Aland 179: ""He who Hears You, Hears Me""",matthew,10:40,10:40
+"Aland 179: ""He who Hears You, Hears Me""",luke,10:16,10:16
+"Aland 181: Jesus' Thanksgiving to the Father, and the Blessedness of the Disciples",matthew,11:25,11:27
+"Aland 181: Jesus' Thanksgiving to the Father, and the Blessedness of the Disciples",matthew,13:16,13:17
+"Aland 181: Jesus' Thanksgiving to the Father, and the Blessedness of the Disciples",luke,10:21,10:24
+Aland 182: The Lawyer's Question,matthew,22:34,22:40
+Aland 182: The Lawyer's Question,mark,12:28,12:34
+Aland 182: The Lawyer's Question,luke,10:25,10:28
+Aland 185: The Lord's Prayer,matthew,6:9,6:13
+Aland 185: The Lord's Prayer,luke,11:1,11:4
+Aland 188: The Beelzebub Controversy,matthew,12:22,12:30
+Aland 188: The Beelzebub Controversy,mark,3:22,3:27
+Aland 188: The Beelzebub Controversy,luke,11:14,11:23
+Aland 191: The Sign of Jonah,matthew,12:38,12:42
+Aland 191: The Sign of Jonah,mark,8:11,8:12
+Aland 191: The Sign of Jonah,luke,11:29,11:32
+Aland 192: Concerning Light,matthew,5:15,5:15
+Aland 192: Concerning Light,mark,4:21,4:21
+Aland 192: Concerning Light,luke,11:33,11:33
+Aland 194: Discourses against the Pharisees and Lawyers,matthew,15:1,15:9
+Aland 194: Discourses against the Pharisees and Lawyers,mark,7:1,7:9
+Aland 194: Discourses against the Pharisees and Lawyers,luke,11:37,11:54
+Aland 195: The Leaven of the Pharisees,matthew,16:5,16:6
+Aland 195: The Leaven of the Pharisees,mark,8:14,8:15
+Aland 195: The Leaven of the Pharisees,luke,12:1,12:1
+Aland 197: The Sin against the Holy Spirit,matthew,12:31,12:32
+Aland 197: The Sin against the Holy Spirit,mark,3:28,3:30
+Aland 197: The Sin against the Holy Spirit,luke,12:10,12:10
+Aland 198: The Assistance of the Holy Spirit,matthew,10:19,10:20
+Aland 198: The Assistance of the Holy Spirit,mark,13:11,13:11
+Aland 198: The Assistance of the Holy Spirit,luke,12:11,12:12
+Aland 198: The Assistance of the Holy Spirit,luke,21:14,21:15
+Aland 203: Watchfulness and Faithfulness,matthew,24:42,24:51
+Aland 203: Watchfulness and Faithfulness,luke,12:35,12:48
+Aland 204: Division in Households,matthew,10:34,10:36
+Aland 204: Division in Households,luke,12:49,12:53
+Aland 205: Interpreting the Times,matthew,16:2,16:3
+Aland 205: Interpreting the Times,luke,12:54,12:56
+Aland 206: Agreement with One's Accuser,matthew,5:25,5:26
+Aland 206: Agreement with One's Accuser,luke,12:57,12:59
+Aland 211: Exclusion from the Kingdom,matthew,7:13,7:14
+Aland 211: Exclusion from the Kingdom,matthew,7:22,7:23
+Aland 211: Exclusion from the Kingdom,matthew,8:11,8:12
+Aland 211: Exclusion from the Kingdom,matthew,19:30,19:30
+Aland 211: Exclusion from the Kingdom,mark,10:31,10:31
+Aland 211: Exclusion from the Kingdom,luke,13:22,13:30
+Aland 213: The Lament over Jerusalem,matthew,23:37,23:39
+Aland 213: The Lament over Jerusalem,luke,13:34,13:35
+Aland 216: The Parable of the Great Supper,matthew,22:1,22:14
+Aland 216: The Parable of the Great Supper,luke,14:15,14:24
+Aland 217: The Conditions of Discipleship,matthew,10:37,10:38
+Aland 217: The Conditions of Discipleship,luke,14:25,14:33
+Aland 219: The Parable of the Lost Sheep,matthew,18:12,18:14
+Aland 219: The Parable of the Lost Sheep,luke,15:1,15:7
+Aland 226: Concerning the Law,matthew,11:12,11:13
+Aland 226: Concerning the Law,matthew,5:18,5:18
+Aland 226: Concerning the Law,luke,16:16,16:17
+Aland 227: Concerning Divorce,matthew,19:9,19:9
+Aland 227: Concerning Divorce,mark,10:11,10:12
+Aland 227: Concerning Divorce,luke,16:18,16:18
+Aland 229: Warning against Offenses,matthew,18:6,18:7
+Aland 229: Warning against Offenses,mark,9:42,9:42
+Aland 229: Warning against Offenses,luke,17:1,17:3
+Aland 230: On Forgiveness,matthew,18:15,18:15
+Aland 230: On Forgiveness,luke,17:3,17:4
+Aland 231: On Faith,matthew,17:19,17:21
+Aland 231: On Faith,mark,9:28,9:29
+Aland 231: On Faith,luke,17:5,17:6
+Aland 235: The Day of the Son of Man,matthew,24:23,24:23
+Aland 235: The Day of the Son of Man,matthew,24:26,24:27
+Aland 235: The Day of the Son of Man,matthew,24:37,24:39
+Aland 235: The Day of the Son of Man,matthew,24:17,24:18
+Aland 235: The Day of the Son of Man,matthew,10:39,10:39
+Aland 235: The Day of the Son of Man,matthew,24:40,24:41
+Aland 235: The Day of the Son of Man,matthew,24:28,24:28
+Aland 235: The Day of the Son of Man,mark,13:19,13:23
+Aland 235: The Day of the Son of Man,mark,13:14,13:16
+Aland 235: The Day of the Son of Man,luke,17:22,17:37
+Aland 252: On Divorce and Celibacy,matthew,19:3,19:12
+Aland 252: On Divorce and Celibacy,mark,10:2,10:12
+Aland 252: On Divorce and Celibacy,luke,16:18,16:18
+Aland 253: Jesus Blesses the Children,matthew,19:13,19:15
+Aland 253: Jesus Blesses the Children,mark,10:13,10:16
+Aland 253: Jesus Blesses the Children,luke,18:15,18:17
+Aland 254: The Rich Young Man,matthew,19:16,19:22
+Aland 254: The Rich Young Man,mark,10:17,10:22
+Aland 254: The Rich Young Man,luke,18:18,18:23
+Aland 255: On Riches and the Rewards of Discipleship,matthew,19:23,19:30
+Aland 255: On Riches and the Rewards of Discipleship,mark,10:23,10:31
+Aland 255: On Riches and the Rewards of Discipleship,luke,18:24,18:30
+Aland 255: On Riches and the Rewards of Discipleship,luke,22:28,22:30
+Aland 256: The Parable of the Laborers in the Vineyard,matthew,20:1,20:16
+Aland 256: The Parable of the Laborers in the Vineyard,mark,10:31,10:31
+Aland 256: The Parable of the Laborers in the Vineyard,luke,13:30,13:30
+Aland 262: The Third Prediction of the Passion,matthew,20:17,20:19
+Aland 262: The Third Prediction of the Passion,mark,10:32,10:34
+Aland 262: The Third Prediction of the Passion,luke,18:31,18:34
+Aland 263: The Sons of Zebedee; Precedence among the Disciples,matthew,20:20,20:28
+Aland 263: The Sons of Zebedee; Precedence among the Disciples,mark,10:35,10:45
+Aland 263: The Sons of Zebedee; Precedence among the Disciples,luke,22:24,22:27
+Aland 264: The Healing of the Blind Men (Bartimaeus),matthew,20:29,20:34
+Aland 264: The Healing of the Blind Men (Bartimaeus),matthew,9:27,9:31
+Aland 264: The Healing of the Blind Men (Bartimaeus),mark,10:46,10:52
+Aland 264: The Healing of the Blind Men (Bartimaeus),luke,18:35,18:43
+Aland 265: Zacchaeus,matthew,18:11,18:11
+Aland 265: Zacchaeus,luke,19:1,19:10
+Aland 266: The Parable of the Pounds,matthew,25:14,25:30
+Aland 266: The Parable of the Pounds,mark,13:34,13:34
+Aland 266: The Parable of the Pounds,luke,19:11,19:27
+Aland 269: The Triumphal Entry,matthew,21:1,21:9
+Aland 269: The Triumphal Entry,mark,11:1,11:10
+Aland 269: The Triumphal Entry,luke,19:28,19:40
+"Aland 271: Jesus in Jerusalem (Cleansing the Temple), Return to Bethany",matthew,21:10,21:17
+"Aland 271: Jesus in Jerusalem (Cleansing the Temple), Return to Bethany",mark,11:11,11:11
+"Aland 271: Jesus in Jerusalem (Cleansing the Temple), Return to Bethany",mark,11:15,11:17
+"Aland 271: Jesus in Jerusalem (Cleansing the Temple), Return to Bethany",luke,19:45,19:46
+Aland 272: The Cursing of the Fig Tree,matthew,21:18,21:19
+Aland 272: The Cursing of the Fig Tree,mark,11:12,11:14
+Aland 274: The Chief Priests and Scribes Conspire against Jesus,mark,11:18,11:19
+Aland 274: The Chief Priests and Scribes Conspire against Jesus,luke,19:47,19:48
+Aland 275: The Fig Tree is Withered,matthew,21:20,21:22
+Aland 275: The Fig Tree is Withered,matthew,6:14,6:15
+Aland 275: The Fig Tree is Withered,mark,11:20,11:26
+Aland 276: The Question about Authority,matthew,21:23,21:27
+Aland 276: The Question about Authority,mark,11:27,11:33
+Aland 276: The Question about Authority,luke,20:1,20:8
+Aland 278: The Parable of the Wicked Husbandmen,matthew,21:33,21:46
+Aland 278: The Parable of the Wicked Husbandmen,mark,12:1,12:12
+Aland 278: The Parable of the Wicked Husbandmen,luke,20:9,20:19
+Aland 280: On Paying Tribute to Caesar,matthew,22:15,22:22
+Aland 280: On Paying Tribute to Caesar,mark,12:13,12:17
+Aland 280: On Paying Tribute to Caesar,luke,20:20,20:26
+Aland 281: The Question about the Resurrection,matthew,22:23,22:33
+Aland 281: The Question about the Resurrection,mark,12:18,12:27
+Aland 281: The Question about the Resurrection,luke,20:27,20:40
+Aland 283: The Question about David's Son,matthew,22:41,22:46
+Aland 283: The Question about David's Son,mark,12:35,12:37
+Aland 283: The Question about David's Son,luke,20:41,20:44
+Aland 284: Woe to the Scribes and Pharisees,matthew,23:1,23:36
+Aland 284: Woe to the Scribes and Pharisees,mark,12:37,12:40
+Aland 284: Woe to the Scribes and Pharisees,luke,20:45,20:47
+Aland 286: The Widow's Mite,mark,12:41,12:44
+Aland 286: The Widow's Mite,luke,21:1,21:4
+Aland 287: Prediction of the Destruction of the Temple,matthew,24:1,24:2
+Aland 287: Prediction of the Destruction of the Temple,mark,13:1,13:2
+Aland 287: Prediction of the Destruction of the Temple,luke,21:5,21:6
+Aland 288: Signs before the End,matthew,24:3,24:8
+Aland 288: Signs before the End,mark,13:3,13:8
+Aland 288: Signs before the End,luke,21:7,21:11
+Aland 289: Persecutions Foretold,matthew,24:9,24:14
+Aland 289: Persecutions Foretold,matthew,10:17,10:22
+Aland 289: Persecutions Foretold,mark,13:9,13:13
+Aland 289: Persecutions Foretold,luke,21:12,21:19
+Aland 289: Persecutions Foretold,luke,12:11,12:12
+Aland 290: The Desolating Sacrilege,matthew,24:15,24:22
+Aland 290: The Desolating Sacrilege,mark,13:14,13:20
+Aland 290: The Desolating Sacrilege,luke,21:20,21:24
+Aland 291: False Christs and False Prophets,matthew,24:23,24:28
+Aland 291: False Christs and False Prophets,mark,13:21,13:23
+Aland 291: False Christs and False Prophets,luke,17:23,17:24
+Aland 291: False Christs and False Prophets,luke,17:37,17:37
+Aland 292: The Coming of the Son of Man,matthew,24:29,24:31
+Aland 292: The Coming of the Son of Man,mark,13:24,13:27
+Aland 292: The Coming of the Son of Man,luke,21:25,21:28
+Aland 293: The Time of the Coming: the Parable of the Fig Tree,matthew,24:32,24:36
+Aland 293: The Time of the Coming: the Parable of the Fig Tree,mark,13:28,13:32
+Aland 293: The Time of the Coming: the Parable of the Fig Tree,luke,21:29,21:33
+"Aland 294: Conclusion: ""Take Heed, Watch!"" (According to Mark)",matthew,25:13,25:15
+"Aland 294: Conclusion: ""Take Heed, Watch!"" (According to Mark)",matthew,24:42,24:42
+"Aland 294: Conclusion: ""Take Heed, Watch!"" (According to Mark)",mark,13:33,13:37
+"Aland 294: Conclusion: ""Take Heed, Watch!"" (According to Mark)",luke,19:12,19:13
+"Aland 294: Conclusion: ""Take Heed, Watch!"" (According to Mark)",luke,12:40,12:40
+Aland 296: The Parable of the Flood and Exhortation to Watchfulness,matthew,24:37,24:44
+Aland 296: The Parable of the Flood and Exhortation to Watchfulness,mark,13:35,13:35
+Aland 296: The Parable of the Flood and Exhortation to Watchfulness,luke,17:26,17:36
+Aland 296: The Parable of the Flood and Exhortation to Watchfulness,luke,12:39,12:40
+Aland 297: The Parable of the Good Servant and the Wicked Servant,matthew,24:45,24:51
+Aland 297: The Parable of the Good Servant and the Wicked Servant,luke,12:41,12:46
+Aland 305: Jesus' Death is Premeditated,matthew,26:1,26:5
+Aland 305: Jesus' Death is Premeditated,mark,14:1,14:2
+Aland 305: Jesus' Death is Premeditated,luke,22:1,22:2
+Aland 307: The Betrayal by Judas,matthew,26:14,26:16
+Aland 307: The Betrayal by Judas,mark,14:10,14:11
+Aland 307: The Betrayal by Judas,luke,22:3,22:6
+Aland 308: Preparation for the Passover,matthew,26:17,26:20
+Aland 308: Preparation for the Passover,mark,14:12,14:17
+Aland 308: Preparation for the Passover,luke,22:7,22:14
+Aland 309: Washing the Disciples' Feet,matthew,10:24,10:24
+Aland 309: Washing the Disciples' Feet,matthew,10:40,10:40
+Aland 309: Washing the Disciples' Feet,luke,6:40,6:40
+Aland 310: Jesus Foretells His Betrayal,matthew,26:21,26:25
+Aland 310: Jesus Foretells His Betrayal,mark,14:18,14:21
+Aland 310: Jesus Foretells His Betrayal,luke,22:21,22:23
+Aland 311: The Last Supper,matthew,26:26,26:29
+Aland 311: The Last Supper,mark,14:22,14:25
+Aland 311: The Last Supper,luke,22:15,22:20
+Aland 313: Precedence among the Disciples and the Reward of Discipleship,matthew,20:24,20:28
+Aland 313: Precedence among the Disciples and the Reward of Discipleship,matthew,19:28,19:28
+Aland 313: Precedence among the Disciples and the Reward of Discipleship,mark,10:41,10:45
+Aland 313: Precedence among the Disciples and the Reward of Discipleship,luke,22:24,22:30
+Aland 315: Peter's Denial Predicted,matthew,26:30,26:35
+Aland 315: Peter's Denial Predicted,mark,14:26,14:31
+Aland 315: Peter's Denial Predicted,luke,22:31,22:34
+Aland 330: Gethsemane,matthew,26:36,26:46
+Aland 330: Gethsemane,mark,14:32,14:42
+Aland 330: Gethsemane,luke,22:39,22:46
+Aland 331: Jesus Arrested,matthew,26:47,26:56
+Aland 331: Jesus Arrested,mark,14:43,14:52
+Aland 331: Jesus Arrested,luke,22:47,22:53
+Aland 332: Jesus before the Sanhedrin (Peter's Denial),matthew,26:57,26:68
+Aland 332: Jesus before the Sanhedrin (Peter's Denial),mark,14:53,14:65
+Aland 332: Jesus before the Sanhedrin (Peter's Denial),luke,22:54,22:71
+Aland 333: Peter's Denial,matthew,26:69,26:75
+Aland 333: Peter's Denial,mark,14:66,14:72
+Aland 333: Peter's Denial,luke,22:56,22:62
+Aland 334: Jesus Delivered to Pilate,matthew,27:1,27:2
+Aland 334: Jesus Delivered to Pilate,mark,15:1,15:1
+Aland 334: Jesus Delivered to Pilate,luke,23:1,23:1
+Aland 336: The Trial before Pilate,matthew,27:11,27:14
+Aland 336: The Trial before Pilate,mark,15:2,15:5
+Aland 336: The Trial before Pilate,luke,23:2,23:5
+Aland 339: Jesus or Barabbas?,matthew,27:15,27:23
+Aland 339: Jesus or Barabbas?,mark,15:6,15:14
+Aland 339: Jesus or Barabbas?,luke,23:17,23:23
+"Aland 340: ""Behold the Man!""",matthew,27:28,27:31
+"Aland 340: ""Behold the Man!""",mark,15:17,15:20
+Aland 341: Pilate Delivers Jesus to be Crucified,matthew,27:24,27:26
+Aland 341: Pilate Delivers Jesus to be Crucified,mark,15:15,15:15
+Aland 341: Pilate Delivers Jesus to be Crucified,luke,23:24,23:25
+Aland 342: Jesus Mocked by the Soldiers,matthew,27:27,27:31
+Aland 342: Jesus Mocked by the Soldiers,mark,15:16,15:20
+Aland 343: The Road to Golgotha,matthew,27:31,27:32
+Aland 343: The Road to Golgotha,mark,15:20,15:21
+Aland 343: The Road to Golgotha,luke,23:26,23:32
+Aland 344: The Crucifixion,matthew,27:33,27:37
+Aland 344: The Crucifixion,mark,15:22,15:26
+Aland 344: The Crucifixion,luke,23:33,23:34
+Aland 345: Jesus Derided on the Cross,matthew,27:38,27:43
+Aland 345: Jesus Derided on the Cross,mark,15:27,15:32
+Aland 345: Jesus Derided on the Cross,luke,23:35,23:38
+Aland 346: The Two Thieves,matthew,27:44,27:44
+Aland 346: The Two Thieves,mark,15:32,15:32
+Aland 346: The Two Thieves,luke,23:39,23:43
+Aland 347: The Death of Jesus,matthew,27:45,27:54
+Aland 347: The Death of Jesus,mark,15:33,15:39
+Aland 347: The Death of Jesus,luke,23:44,23:48
+Aland 348: Witnesses of the Crucifixion,matthew,27:55,27:56
+Aland 348: Witnesses of the Crucifixion,mark,15:40,15:41
+Aland 348: Witnesses of the Crucifixion,luke,23:49,23:49
+Aland 350: The Burial of Jesus,matthew,27:57,27:61
+Aland 350: The Burial of Jesus,mark,15:42,15:47
+Aland 350: The Burial of Jesus,luke,23:50,23:56
+Aland 352: The Women at the Tomb,matthew,28:1,28:8
+Aland 352: The Women at the Tomb,mark,16:1,16:8
+Aland 352: The Women at the Tomb,luke,24:1,24:12
+Aland 353: Jesus Appears to the Women,matthew,28:9,28:10
+Aland 353: Jesus Appears to the Women,mark,16:9,16:11
+Aland 353: Jesus Appears to the Women,luke,24:10,24:11
+Aland 355: Jesus Appears to Two on the Way to Emmaus,mark,16:12,16:13
+Aland 355: Jesus Appears to Two on the Way to Emmaus,luke,24:13,24:35
+Aland 365: The Ending of Luke: Jesus' Last Words and Ascension,mark,16:15,16:15
+Aland 365: The Ending of Luke: Jesus' Last Words and Ascension,mark,16:19,16:19
+Aland 365: The Ending of Luke: Jesus' Last Words and Ascension,luke,24:44,24:53

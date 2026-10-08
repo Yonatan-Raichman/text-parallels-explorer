@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Settings Benchmark</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+  --grid: #e1e0d9; --axis: #c3c2b7; --border: rgba(11,11,11,0.10);
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a;
+  --o1: #86b6ef; --o2: #5598e7; --o3: #2a78d6; --o4: #1c5cab; --o5: #104281;
+  --seq-low: #cde2fb; --seq-high: #0d366b;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70;
+    --o1: #184f95; --o2: #256abf; --o3: #3987e5; --o4: #6da7ec; --o5: #b7d3f6;
+    --seq-low: #184f95; --seq-high: #cde2fb;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+  --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70;
+  --o1: #184f95; --o2: #256abf; --o3: #3987e5; --o4: #6da7ec; --o5: #b7d3f6;
+  --seq-low: #184f95; --seq-high: #cde2fb;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink);
+       font-family: system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.5; }
+main { max-width: 1180px; margin: 0 auto; padding: 24px 16px 64px; }
+h1 { font-size: 26px; margin: 0 0 4px; }
+h2 { font-size: 20px; margin: 40px 0 4px; }
+h3 { font-size: 14px; margin: 0 0 2px; font-weight: 600; }
+p { margin: 0 0 10px; max-width: 78ch; }
+.sub { color: var(--ink-2); }
+.small { font-size: 13px; color: var(--ink-2); }
+code { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
+@media (max-width: 760px) { .grid2 { grid-template-columns: 1fr; } }
+.chart { position: relative; }
+.chart svg { width: 100%; height: auto; display: block; overflow: visible; }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12px; color: var(--ink-2); margin: 4px 0 2px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { display: inline-block; width: 14px; height: 2px; border-radius: 1px; }
+.tip { position: absolute; pointer-events: none; background: var(--surface); border: 1px solid var(--border);
+       border-radius: 8px; padding: 8px 10px; font-size: 12px; box-shadow: 0 4px 16px rgba(0,0,0,.12);
+       min-width: 150px; z-index: 5; display: none; }
+.tip .head { color: var(--ink-2); margin-bottom: 4px; }
+.tip .row { display: flex; align-items: center; gap: 8px; }
+.tip .row b { font-variant-numeric: tabular-nums; min-width: 42px; }
+.tip .row i { display: inline-block; width: 12px; height: 2px; }
+.tip .row span { color: var(--ink-2); }
+table { border-collapse: collapse; width: 100%; font-size: 13px; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--grid); }
+th { color: var(--ink-2); font-weight: 600; }
+tr.current td { font-weight: 600; }
+details { margin-top: 10px; }
+summary { cursor: pointer; color: var(--ink-2); font-size: 13px; }
+.takeaway { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--s1);
+            border-radius: 8px; padding: 8px 12px; margin: 8px 0 0; max-width: none; }
+.table-wrap { overflow-x: auto; }
+.scale { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--ink-2); margin-top: 6px; }
+.scale .bar { width: 160px; height: 8px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Which settings work best? A test of the parallel finder</h1>
+  <p class="sub">This page tests the five settings at the top of <code>matcher.py</code>. For each setting, several
+  values were tried, and for each value we measured how well the program finds parallels.</p>
+  <p class="small" id="intro"></p>
+
+  <div class="card" style="margin-top:16px">
+    <h3>The two tests</h3>
+    <p class="small"><b>1. The practice test.</b> We hid passages copied from one Gospel inside a jumbled-up text.
+    Some are exact copies, others have 10&ndash;40% of their words changed. Because we hid them ourselves, we know
+    every right answer, so we can grade the program exactly.</p>
+    <p class="small" id="realtest"></p>
+
+    <h3 style="margin-top:12px">What the scores mean</h3>
+    <p class="small">Imagine looking for 100 coins hidden on a beach with a metal detector.</p>
+    <p class="small"><b>Precision (correct):</b> of everything you dug up, how much was really a coin and not a bottle
+    cap? High precision = few false alarms.<br>
+    <b>Recall (found):</b> of the 100 hidden coins, how many did you find? High recall = few missed.<br>
+    <b>Overall (F1):</b> one grade that combines the two. It is only high when both are high, so this is the main
+    score to look at.<br>
+    <b>Boundary fit:</b> when a passage is found, how exactly its start and end are right (100% = exactly right).<br>
+    <span id="goldnote"></span></p>
+
+    <h3 style="margin-top:12px">How to read the charts</h3>
+    <p class="small">Each setting is changed on its own while the others stay as they are. The thin vertical line
+    marked &ldquo;current&rdquo; is the value used now. Higher lines are better. Move the mouse over a chart to see
+    the exact numbers, or click &ldquo;Show all the numbers&rdquo; under it. Differences of 1&ndash;2 points are too
+    small to matter: they can change by chance.</p>
+  </div>
+
+  <h2>Summary: should any setting change?</h2>
+  <div class="card table-wrap"><table id="summary"></table></div>
+
+  <div id="sections"></div>
+
+  <h2 id="heat-title"></h2>
+  <p class="sub" id="heat-sub"></p>
+  <div class="card"><div class="chart" id="heatmap"></div><div class="scale" id="heat-scale"></div>
+    <details><summary>Show all the numbers</summary><div class="table-wrap"><table id="heat-table"></table></div></details>
+  </div>
+</main>
+
+<script>
+const DATA = {"sweeps": {"SEED_SIZE": [2, 3, 4, 5, 6, 7, 8], "MAX_GAP": [1, 3, 5, 10, 15, 20, 30, 40, 60], "MIN_WORDS": [4, 6, 8, 10, 12, 15, 20, 30], "MIN_SCORE": [0.0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0], "MAX_COMMON": [1, 2, 5, 10, 25, 50, 100, 1000]}, "current": {"SEED_SIZE": 4, "MAX_GAP": 20, "MIN_WORDS": 8, "MIN_SCORE": 0.5, "MAX_COMMON": 25}, "explain": {"SEED_SIZE": "How many words in a row must be exactly the same before the program looks closer. A smaller number finds more, but also more false matches. A bigger number gives fewer false matches, but misses passages where the wording changes every few words.", "MAX_GAP": "How many words may lie between two matching bits for them to still count as one passage. Too small: an edited passage gets chopped into small pieces. Too big: two separate passages that happen to be close get glued together into one.", "MIN_WORDS": "The shortest match, in words, that the program will report. Smaller: lots of tiny matches such as common phrases. Bigger: only long passages, so short real parallels are lost.", "MIN_SCORE": "How similar two passages must be (0% to 100%) to be reported. Higher: only near-identical copies. Lower: heavily changed passages are kept too, but also more doubtful ones.", "MAX_COMMON": "Very common phrases (like \"and he said unto them\") are not used as starting points if they appear more often than this. Smaller: more phrases ignored, less noise, but some real passages are missed. Bigger: more phrases used, more noise."}, "rows": [{"parameter": "SEED_SIZE", "value": 2, "is_current": false, "precision": 0.19880418535127056, "recall": 0.99, "f1": 0.33111616853805437, "boundary_fit": 0.9072163693091693, "reported": 2007, "found_0pct_edits": 1.0, "found_10pct_edits": 0.9875, "found_20pct_edits": 1.0, "found_30pct_edits": 0.9625, "found_40pct_edits": 1.0, "known_found": 0.8197802197802198, "real_reported": 2304, "real_inside_known": 0.22569444444444445, "seconds": 5.707768699998269}, {"parameter": "SEED_SIZE", "value": 3, "is_current": false, "precision": 0.5745937961595273, "recall": 0.9725, "f1": 0.7223769730733519, "boundary_fit": 0.8933174236095237, "reported": 677, "found_0pct_edits": 1.0, "found_10pct_edits": 1.0, "found_20pct_edits": 0.9875, "found_30pct_edits": 0.9625, "found_40pct_edits": 0.9125, "known_found": 0.7648351648351648, "real_reported": 1054, "real_inside_known": 0.4829222011385199, "seconds": 1.0550713999837171}, {"parameter": "SEED_SIZE", "value": 4, "is_current": true, "precision": 0.8631090487238979, "recall": 0.9175, "f1": 0.8894738042263753, "boundary_fit": 0.833836826147441, "reported": 431, "found_0pct_edits": 1.0, "found_10pct_edits": 1.0, "found_20pct_edits": 0.95, "found_30pct_edits": 0.925, "found_40pct_edits": 0.7125, "known_found": 0.676923076923077, "real_reported": 618, "real_inside_known": 0.7556634304207119, "seconds": 0.41683610001928173}, {"parameter": "SEED_SIZE", "value": 5, "is_current": false, "precision": 0.9217877094972067, "recall": 0.8025, "f1": 0.8580176414842173, "boundary_fit": 0.7758870625237513, "reported": 358, "found_0pct_edits": 1.0, "found_10pct_edits": 0.975, "found_20pct_edits": 0.8375, "found_30pct_edits": 0.8, "found_40pct_edits": 0.4, "known_found": 0.5956043956043956, "real_reported": 493, "real_inside_known": 0.8296146044624746, "seconds": 0.3029151999799069}, {"parameter": "SEED_SIZE", "value": 6, "is_current": false, "precision": 0.927710843373494, "recall": 0.7475, "f1": 0.8279123289641657, "boundary_fit": 0.7340594568427337, "reported": 332, "found_0pct_edits": 1.0, "found_10pct_edits": 0.975, "found_20pct_edits": 0.8125, "found_30pct_edits": 0.65, "found_40pct_edits": 0.3, "known_found": 0.5560439560439561, "real_reported": 461, "real_inside_known": 0.8286334056399133, "seconds": 0.2710767000098713}, {"parameter": "SEED_SIZE", "value": 7, "is_current": false, "precision": 0.9292307692307692, "recall": 0.7275, "f1": 0.8160835751596053, "boundary_fit": 0.688977674133192, "reported": 325, "found_0pct_edits": 1.0, "found_10pct_edits": 0.975, "found_20pct_edits": 0.775, "found_30pct_edits": 0.6125, "found_40pct_edits": 0.275, "known_found": 0.5340659340659341, "real_reported": 456, "real_inside_known": 0.831140350877193, "seconds": 0.2578835999884177}, {"parameter": "SEED_SIZE", "value": 8, "is_current": false, "precision": 0.9290123456790124, "recall": 0.7175, "f1": 0.8096706468967327, "boundary_fit": 0.651981062650208, "reported": 324, "found_0pct_edits": 1.0, "found_10pct_edits": 0.975, "found_20pct_edits": 0.75, "found_30pct_edits": 0.6125, "found_40pct_edits": 0.25, "known_found": 0.5318681318681319, "real_reported": 454, "real_inside_known": 0.8281938325991189, "seconds": 0.2558891999942716}, {"parameter": "MAX_GAP", "value": 1, "is_current": false, "precision": 0.9423076923076923, "recall": 0.7175, "f1": 0.8146796431467964, "boundary_fit": 0.5558096456155597, "reported": 416, "found_0pct_edits": 1.0, "found_10pct_edits": 0.975, "found_20pct_edits": 0.75, "found_30pct_edits": 0.6125, "found_40pct_edits": 0.25, "known_found": 0.5296703296703297, "real_reported": 541, "real_inside_known": 0.8817005545286506, "seconds": 0.38587500000721775}, {"parameter": "MAX_GAP", "value": 3, "is_current": false, "precision": 0.9423076923076923, "recall": 0.7175, "f1": 0.8146796431467964, "boundary_fit": 0.5558096456155597, "reported": 416, "found_0pct_edits": 1.0, "found_10pct_edits": 0.975, "found_20pct_edits": 0.75, "found_30pct_edits": 0.6125, "found_40pct_edits": 0.25, "known_found": 0.5318681318681319, "real_reported": 547, "real_inside_known": 0.8756855575868373, "seconds": 0.3868151999777183}, {"parameter": "MAX_GAP", "value": 5, "is_current": false, "precision": 0.9241071428571429, "recall": 0.825, "f1": 0.8717457886676876, "boundary_fit": 0.6433320455889677, "reported": 448, "found_0pct_edits": 1.0, "found_10pct_edits": 0.9875, "found_20pct_edits": 0.875, "found_30pct_edits": 0.7875, "found_40pct_edits": 0.475, "known_found": 0.5648351648351648, "real_reported": 587, "real_inside_known": 0.8534923339011925, "seconds": 0.40235230000689626}, {"parameter": "MAX_GAP", "value": 10, "is_current": false, "precision": 0.8988505747126436, "recall": 0.885, "f1": 0.891871516479268, "boundary_fit": 0.74558675106378, "reported": 435, "found_0pct_edits": 1.0, "found_10pct_edits": 1.0, "found_20pct_edits": 0.925, "found_30pct_edits": 0.8875, "found_40pct_edits": 0.6125, "known_found": 0.6307692307692307, "real_reported": 635, "real_inside_known": 0.8283464566929134, "seconds": 0.4159253000107128}, {"parameter": "MAX_GAP", "value": 15, "is_current": false, "precision": 0.8793503480278422, "recall": 0.9125, "f1": 0.895618535843193, "boundary_fit": 0.8085822464147274, "reported": 431, "found_0pct_edits": 1.0, "found_10pct_edits": 1.0, "found_20pct_edits": 0.9375, "found_30pct_edits": 0.925, "found_40pct_edits": 0.7, "known_found": 0.6593406593406593, "real_reported": 641, "real_inside_known": 0.7862714508580343, "seconds": 0.42047090001869947}, {"parameter": "MAX_GAP", "value": 20, "is_current": true, "precision": 0.8631090487238979, "recall": 0.9175, "f1": 0.8894738042263753, "boundary_fit": 0.833836826147441, "reported": 431, "found_0pct_edits": 1.0, "found_10pct_edits": 1.0, "found_20pct_edits": 0.95, "found_30pct_edits": 0.925, "found_40pct_edits": 0.7125, "known_found": 0.676923076923077, "real_reported": 618, "real_inside_known": 0.7556634304207119, "seconds": 0.4234700000088196}, {"parameter": "MAX_GAP", "value": 30, "is_current": false, "precision": 0.8618266978922716, "recall": 0.9175, "f1": 0.8887923687682825, "boundary_fit": 0.8482310304027291, "reported": 427, "found_0pct_edits": 1.0, "found_10pct_edits": 1.0, "found_20pct_edits": 0.95, "found_30pct_edits": 0.925, "found_40pct_edits": 0.7125, "known_found": 0.6835164835164835, "real_reported": 533, "real_inside_known": 0.7148217636022514, "seconds": 0.4331684999924619}, {"parameter": "MAX_GAP", "value": 40, "is_current": false, "precision": 0.8682352941176471, "recall": 0.9225, "f1": 0.8945454545454545, "boundary_fit": 0.8465074584368569, "reported": 425, "found_0pct_edits": 1.0, "found_10pct_edits": 1.0, "found_20pct_edits": 0.95, "found_30pct_edits": 0.925, "found_40pct_edits": 0.7375, "known_found": 0.6791208791208792, "real_reported": 474, "real_inside_known": 0.6919831223628692, "seconds": 0.4457618999877013}, {"parameter": "MAX_GAP", "value": 60, "is_current": false, "precision": 0.8822115384615384, "recall": 0.9175, "f1": 0.8995098039215687, "boundary_fit": 0.8300676931087592, "reported": 416, "found_0pct_edits": 1.0, "found_10pct_edits": 1.0, "found_20pct_edits": 0.95, "found_30pct_edits": 0.9125, "found_40pct_edits": 0.725, "known_found": 0.6263736263736264, "real_reported": 350, "real_inside_known": 0.6428571428571429, "seconds": 0.48492580000311136}, {"parameter": "MIN_WORDS", "value": 4, "is_current": false, "precision": 0.05993324626324191, "recall": 0.9825, "f1": 0.11297493564161577, "boundary_fit": 0.7928922214348141, "reported": 6891, "found_0pct_edits": 1.0, "found_10pct_edits": 1.0, "found_20pct_edits": 1.0, "found_30pct_edits": 0.975, "found_40pct_edits": 0.9375, "known_found": 0.8527472527472527, "real_reported": 9625, "real_inside_known": 0.0988051948051948, "seconds": 3.0563136999844573}, {"parameter": "MIN_WORDS", "value": 6, "is_current": false, "precision": 0.6695957820738138, "recall": 0.93, "f1": 0.7786017996637992, "boundary_fit": 0.8268057326255457, "reported": 569, "found_0pct_edits": 1.0, "found_10pct_edits": 1.0, "found_20pct_edits": 0.9625, "found_30pct_edits": 0.95, "found_40pct_edits": 0.7375, "known_found": 0.7538461538461538, "real_reported": 1183, "real_inside_known": 0.4750633981403212, "seconds": 0.5171517999842763}, {"parameter": "MIN_WORDS", "value": 8, "is_current": true, "precision": 0.8631090487238979, "recall": 0.9175, "f1": 0.8894738042263753, "boundary_fit": 0.833836826147441, "reported": 431, "found_0pct_edits": 1.0, "found_10pct_edits": 1.0, "found_20pct_edits": 0.95, "found_30pct_edits": 0.925, "found_40pct_edits": 0.7125, "known_found": 0.676923076923077, "real_reported": 618, "real_inside_known": 0.7556634304207119, "seconds": 0.43011159999878146}, {"parameter": "MIN_WORDS", "value": 10, "is_current": false, "precision": 0.8985148514851485, "recall": 0.8975, "f1": 0.8980071390179026, "boundary_fit": 0.8416011062232324, "reported": 404, "found_0pct_edits": 1.0, "found_10pct_edits": 0.9875, "found_20pct_edits": 0.9375, "found_30pct_edits": 0.9125, "found_40pct_edits": 0.65, "known_found": 0.6527472527472528, "real_reported": 511, "real_inside_known": 0.8140900195694716, "seconds": 0.41794700000900775}, {"parameter": "MIN_WORDS", "value": 12, "is_current": false, "precision": 0.917989417989418, "recall": 0.865, "f1": 0.8907073015119369, "boundary_fit": 0.8540494927286263, "reported": 378, "found_0pct_edits": 1.0, "found_10pct_edits": 0.95, "found_20pct_edits": 0.9, "found_30pct_edits": 0.875, "found_40pct_edits": 0.6, "known_found": 0.621978021978022, "real_reported": 452, "real_inside_known": 0.8451327433628318, "seconds": 0.4143264000013005}, {"parameter": "MIN_WORDS", "value": 15, "is_current": false, "precision": 0.9258160237388724, "recall": 0.78, "f1": 0.8466757123473541, "boundary_fit": 0.869502776890157, "reported": 337, "found_0pct_edits": 0.9375, "found_10pct_edits": 0.8875, "found_20pct_edits": 0.75, "found_30pct_edits": 0.8, "found_40pct_edits": 0.525, "known_found": 0.5868131868131868, "real_reported": 399, "real_inside_known": 0.8646616541353384, "seconds": 0.3967959000146948}, {"parameter": "MIN_WORDS", "value": 20, "is_current": false, "precision": 0.9655172413793104, "recall": 0.7, "f1": 0.8115942028985508, "boundary_fit": 0.885662205294659, "reported": 290, "found_0pct_edits": 0.8625, "found_10pct_edits": 0.8625, "found_20pct_edits": 0.65, "found_30pct_edits": 0.7, "found_40pct_edits": 0.425, "known_found": 0.5098901098901099, "real_reported": 292, "real_inside_known": 0.9041095890410958, "seconds": 0.39641289997962303}, {"parameter": "MIN_WORDS", "value": 30, "is_current": false, "precision": 0.9949494949494949, "recall": 0.4925, "f1": 0.6588628762541806, "boundary_fit": 0.9212670195171361, "reported": 198, "found_0pct_edits": 0.6625, "found_10pct_edits": 0.7125, "found_20pct_edits": 0.425, "found_30pct_edits": 0.45, "found_40pct_edits": 0.2125, "known_found": 0.3516483516483517, "real_reported": 155, "real_inside_known": 1.0, "seconds": 0.3686493999848608}, {"parameter": "MIN_SCORE", "value": 0.0, "is_current": false, "precision": 0.8359550561797753, "recall": 0.9175, "f1": 0.8748313922752831, "boundary_fit": 0.833836826147441, "reported": 445, "found_0pct_edits": 1.0, "found_10pct_edits": 1.0, "found_20pct_edits": 0.95, "found_30pct_edits": 0.925, "found_40pct_edits": 0.7125, "known_found": 0.676923076923077, "real_reported": 658, "real_inside_known": 0.7127659574468085, "seconds": 0.4333609000022989}, {"parameter": "MIN_SCORE", "value": 0.2, "is_current": false, "precision": 0.8359550561797753, "recall": 0.9175, "f1": 0.8748313922752831, "boundary_fit": 0.833836826147441, "reported": 445, "found_0pct_edits": 1.0, "found_10pct_edits": 1.0, "found_20pct_edits": 0.95, "found_30pct_edits": 0.925, "found_40pct_edits": 0.7125, "known_found": 0.676923076923077, "real_reported": 658, "real_inside_known": 0.7127659574468085, "seconds": 0.43291770000359975}, {"parameter": "MIN_SCORE", "value": 0.3, "is_current": false, "precision": 0.8359550561797753, "recall": 0.9175, "f1": 0.8748313922752831, "boundary_fit": 0.833836826147441, "reported": 445, "found_0pct_edits": 1.0, "found_10pct_edits": 1.0, "found_20pct_edits": 0.95, "found_30pct_edits": 0.925, "found_40pct_edits": 0.7125, "known_found": 0.676923076923077, "real_reported": 658, "real_inside_known": 0.7127659574468085, "seconds": 0.4290960000071209}, {"parameter": "MIN_SCORE", "value": 0.4, "is_current": false, "precision": 0.851258581235698, "recall": 0.9175, "f1": 0.8831388936506037, "boundary_fit": 0.833836826147441, "reported": 437, "found_0pct_edits": 1.0, "found_10pct_edits": 1.0, "found_20pct_edits": 0.95, "found_30pct_edits": 0.925, "found_40pct_edits": 0.7125, "known_found": 0.676923076923077, "real_reported": 645, "real_inside_known": 0.7255813953488373, "seconds": 0.4253638999944087}, {"parameter": "MIN_SCORE", "value": 0.5, "is_current": true, "precision": 0.8631090487238979, "recall": 0.9175, "f1": 0.8894738042263753, "boundary_fit": 0.833836826147441, "reported": 431, "found_0pct_edits": 1.0, "found_10pct_edits": 1.0, "found_20pct_edits": 0.95, "found_30pct_edits": 0.925, "found_40pct_edits": 0.7125, "known_found": 0.676923076923077, "real_reported": 618, "real_inside_known": 0.7556634304207119, "seconds": 0.42652549999183975}, {"parameter": "MIN_SCORE", "value": 0.6, "is_current": false, "precision": 0.8815165876777251, "recall": 0.9175, "f1": 0.8991484289073151, "boundary_fit": 0.833836826147441, "reported": 422, "found_0pct_edits": 1.0, "found_10pct_edits": 1.0, "found_20pct_edits": 0.95, "found_30pct_edits": 0.925, "found_40pct_edits": 0.7125, "known_found": 0.6593406593406593, "real_reported": 580, "real_inside_known": 0.7758620689655172, "seconds": 0.4190707999805454}, {"parameter": "MIN_SCORE", "value": 0.7, "is_current": false, "precision": 0.8983050847457628, "recall": 0.915, "f1": 0.9065756881805861, "boundary_fit": 0.8332294795311984, "reported": 413, "found_0pct_edits": 1.0, "found_10pct_edits": 1.0, "found_20pct_edits": 0.95, "found_30pct_edits": 0.925, "found_40pct_edits": 0.7, "known_found": 0.6131868131868132, "real_reported": 496, "real_inside_known": 0.7862903225806451, "seconds": 0.41294869998819195}, {"parameter": "MIN_SCORE", "value": 0.8, "is_current": false, "precision": 0.9015151515151515, "recall": 0.88, "f1": 0.890627657764926, "boundary_fit": 0.8308115267776045, "reported": 396, "found_0pct_edits": 1.0, "found_10pct_edits": 0.9875, "found_20pct_edits": 0.95, "found_30pct_edits": 0.85, "found_40pct_edits": 0.6125, "known_found": 0.5010989010989011, "real_reported": 382, "real_inside_known": 0.7617801047120419, "seconds": 0.4025090000068303}, {"parameter": "MIN_SCORE", "value": 0.9, "is_current": false, "precision": 0.8860294117647058, "recall": 0.5925, "f1": 0.7101278098269346, "boundary_fit": 0.8507407491630528, "reported": 272, "found_0pct_edits": 1.0, "found_10pct_edits": 0.8875, "found_20pct_edits": 0.575, "found_30pct_edits": 0.3, "found_40pct_edits": 0.2, "known_found": 0.367032967032967, "real_reported": 244, "real_inside_known": 0.7008196721311475, "seconds": 0.38159600002109073}, {"parameter": "MIN_SCORE", "value": 1.0, "is_current": false, "precision": 0.8507462686567164, "recall": 0.285, "f1": 0.42696629213483145, "boundary_fit": 0.8784538751413992, "reported": 134, "found_0pct_edits": 1.0, "found_10pct_edits": 0.15, "found_20pct_edits": 0.1125, "found_30pct_edits": 0.0875, "found_40pct_edits": 0.075, "known_found": 0.2549450549450549, "real_reported": 171, "real_inside_known": 0.6374269005847953, "seconds": 0.36627849997603334}, {"parameter": "MAX_COMMON", "value": 1, "is_current": false, "precision": 0.9160493827160494, "recall": 0.915, "f1": 0.9155243906550248, "boundary_fit": 0.8265765963463606, "reported": 405, "found_0pct_edits": 1.0, "found_10pct_edits": 0.9875, "found_20pct_edits": 0.95, "found_30pct_edits": 0.925, "found_40pct_edits": 0.7125, "known_found": 0.6395604395604395, "real_reported": 465, "real_inside_known": 0.8838709677419355, "seconds": 0.32112969999434426}, {"parameter": "MAX_COMMON", "value": 2, "is_current": false, "precision": 0.8961352657004831, "recall": 0.915, "f1": 0.9054693855776798, "boundary_fit": 0.8322262874499177, "reported": 414, "found_0pct_edits": 1.0, "found_10pct_edits": 0.9875, "found_20pct_edits": 0.95, "found_30pct_edits": 0.925, "found_40pct_edits": 0.7125, "known_found": 0.654945054945055, "real_reported": 524, "real_inside_known": 0.8320610687022901, "seconds": 0.3372314000152983}, {"parameter": "MAX_COMMON", "value": 5, "is_current": false, "precision": 0.8770685579196218, "recall": 0.915, "f1": 0.8956328450157972, "boundary_fit": 0.8333922607137855, "reported": 423, "found_0pct_edits": 1.0, "found_10pct_edits": 0.9875, "found_20pct_edits": 0.95, "found_30pct_edits": 0.925, "found_40pct_edits": 0.7125, "known_found": 0.6681318681318681, "real_reported": 575, "real_inside_known": 0.8052173913043478, "seconds": 0.3686767999897711}, {"parameter": "MAX_COMMON", "value": 10, "is_current": false, "precision": 0.8631090487238979, "recall": 0.9175, "f1": 0.8894738042263753, "boundary_fit": 0.833836826147441, "reported": 431, "found_0pct_edits": 1.0, "found_10pct_edits": 1.0, "found_20pct_edits": 0.95, "found_30pct_edits": 0.925, "found_40pct_edits": 0.7125, "known_found": 0.6681318681318681, "real_reported": 594, "real_inside_known": 0.7811447811447811, "seconds": 0.40685470000607893}, {"parameter": "MAX_COMMON", "value": 25, "is_current": true, "precision": 0.8631090487238979, "recall": 0.9175, "f1": 0.8894738042263753, "boundary_fit": 0.833836826147441, "reported": 431, "found_0pct_edits": 1.0, "found_10pct_edits": 1.0, "found_20pct_edits": 0.95, "found_30pct_edits": 0.925, "found_40pct_edits": 0.7125, "known_found": 0.676923076923077, "real_reported": 618, "real_inside_known": 0.7556634304207119, "seconds": 0.4287535999901593}, {"parameter": "MAX_COMMON", "value": 50, "is_current": false, "precision": 0.8631090487238979, "recall": 0.9175, "f1": 0.8894738042263753, "boundary_fit": 0.833836826147441, "reported": 431, "found_0pct_edits": 1.0, "found_10pct_edits": 1.0, "found_20pct_edits": 0.95, "found_30pct_edits": 0.925, "found_40pct_edits": 0.7125, "known_found": 0.6857142857142857, "real_reported": 670, "real_inside_known": 0.7044776119402985, "seconds": 0.4834965000045486}, {"parameter": "MAX_COMMON", "value": 100, "is_current": false, "precision": 0.8631090487238979, "recall": 0.9175, "f1": 0.8894738042263753, "boundary_fit": 0.833836826147441, "reported": 431, "found_0pct_edits": 1.0, "found_10pct_edits": 1.0, "found_20pct_edits": 0.95, "found_30pct_edits": 0.925, "found_40pct_edits": 0.7125, "known_found": 0.6857142857142857, "real_reported": 681, "real_inside_known": 0.6945668135095447, "seconds": 0.4984610000101384}, {"parameter": "MAX_COMMON", "value": 1000, "is_current": false, "precision": 0.8631090487238979, "recall": 0.9175, "f1": 0.8894738042263753, "boundary_fit": 0.833836826147441, "reported": 431, "found_0pct_edits": 1.0, "found_10pct_edits": 1.0, "found_20pct_edits": 0.95, "found_30pct_edits": 0.925, "found_40pct_edits": 0.7125, "known_found": 0.6857142857142857, "real_reported": 681, "real_inside_known": 0.6945668135095447, "seconds": 0.49791259999619797}], "grid": [{"SEED_SIZE": 2, "MAX_GAP": 1, "f1": 0.7450682607641974, "precision": 0.9569620253164557, "recall": 0.61}, {"SEED_SIZE": 2, "MAX_GAP": 3, "f1": 0.9099769987033827, "precision": 0.9150090415913201, "recall": 0.905}, {"SEED_SIZE": 2, "MAX_GAP": 5, "f1": 0.8385021399321507, "precision": 0.7413249211356467, "recall": 0.965}, {"SEED_SIZE": 2, "MAX_GAP": 10, "f1": 0.3345682411741637, "precision": 0.20119521912350596, "recall": 0.9925}, {"SEED_SIZE": 2, "MAX_GAP": 15, "f1": 0.31868817234587477, "precision": 0.18981921979067554, "recall": 0.9925}, {"SEED_SIZE": 2, "MAX_GAP": 20, "f1": 0.33111616853805437, "precision": 0.19880418535127056, "recall": 0.99}, {"SEED_SIZE": 2, "MAX_GAP": 30, "f1": 0.3677920956014686, "precision": 0.22664359861591696, "recall": 0.975}, {"SEED_SIZE": 2, "MAX_GAP": 40, "f1": 0.3965059043745523, "precision": 0.252710027100271, "recall": 0.92}, {"SEED_SIZE": 2, "MAX_GAP": 60, "f1": 0.4162421458009594, "precision": 0.28732394366197184, "recall": 0.755}, {"SEED_SIZE": 3, "MAX_GAP": 1, "f1": 0.813013922716202, "precision": 0.9421686746987952, "recall": 0.715}, {"SEED_SIZE": 3, "MAX_GAP": 3, "f1": 0.8163923103487971, "precision": 0.9425837320574163, "recall": 0.72}, {"SEED_SIZE": 3, "MAX_GAP": 5, "f1": 0.8899662074343644, "precision": 0.8685185185185185, "recall": 0.9125}, {"SEED_SIZE": 3, "MAX_GAP": 10, "f1": 0.7801798958497712, "precision": 0.6570972886762361, "recall": 0.96}, {"SEED_SIZE": 3, "MAX_GAP": 15, "f1": 0.7326914434872402, "precision": 0.5886736214605067, "recall": 0.97}, {"SEED_SIZE": 3, "MAX_GAP": 20, "f1": 0.7223769730733519, "precision": 0.5745937961595273, "recall": 0.9725}, {"SEED_SIZE": 3, "MAX_GAP": 30, "f1": 0.7377358490566038, "precision": 0.5924242424242424, "recall": 0.9775}, {"SEED_SIZE": 3, "MAX_GAP": 40, "f1": 0.7461297463558372, "precision": 0.6071987480438185, "recall": 0.9675}, {"SEED_SIZE": 3, "MAX_GAP": 60, "f1": 0.7347938314911643, "precision": 0.6161616161616161, "recall": 0.91}, {"SEED_SIZE": 4, "MAX_GAP": 1, "f1": 0.8146796431467964, "precision": 0.9423076923076923, "recall": 0.7175}, {"SEED_SIZE": 4, "MAX_GAP": 3, "f1": 0.8146796431467964, "precision": 0.9423076923076923, "recall": 0.7175}, {"SEED_SIZE": 4, "MAX_GAP": 5, "f1": 0.8717457886676876, "precision": 0.9241071428571429, "recall": 0.825}, {"SEED_SIZE": 4, "MAX_GAP": 10, "f1": 0.891871516479268, "precision": 0.8988505747126436, "recall": 0.885}, {"SEED_SIZE": 4, "MAX_GAP": 15, "f1": 0.895618535843193, "precision": 0.8793503480278422, "recall": 0.9125}, {"SEED_SIZE": 4, "MAX_GAP": 20, "f1": 0.8894738042263753, "precision": 0.8631090487238979, "recall": 0.9175}, {"SEED_SIZE": 4, "MAX_GAP": 30, "f1": 0.8887923687682825, "precision": 0.8618266978922716, "recall": 0.9175}, {"SEED_SIZE": 4, "MAX_GAP": 40, "f1": 0.8945454545454545, "precision": 0.8682352941176471, "recall": 0.9225}, {"SEED_SIZE": 4, "MAX_GAP": 60, "f1": 0.8995098039215687, "precision": 0.8822115384615384, "recall": 0.9175}, {"SEED_SIZE": 5, "MAX_GAP": 1, "f1": 0.8146796431467964, "precision": 0.9423076923076923, "recall": 0.7175}, {"SEED_SIZE": 5, "MAX_GAP": 3, "f1": 0.8146796431467964, "precision": 0.9423076923076923, "recall": 0.7175}, {"SEED_SIZE": 5, "MAX_GAP": 5, "f1": 0.8147313447390376, "precision": 0.9424460431654677, "recall": 0.7175}, {"SEED_SIZE": 5, "MAX_GAP": 10, "f1": 0.8448325413479368, "precision": 0.9249329758713136, "recall": 0.7775}, {"SEED_SIZE": 5, "MAX_GAP": 15, "f1": 0.8540825680696056, "precision": 0.9226519337016574, "recall": 0.795}, {"SEED_SIZE": 5, "MAX_GAP": 20, "f1": 0.8580176414842173, "precision": 0.9217877094972067, "recall": 0.8025}, {"SEED_SIZE": 5, "MAX_GAP": 30, "f1": 0.8615241940778675, "precision": 0.9232954545454546, "recall": 0.8075}, {"SEED_SIZE": 5, "MAX_GAP": 40, "f1": 0.8658698539176626, "precision": 0.9235127478753541, "recall": 0.815}, {"SEED_SIZE": 5, "MAX_GAP": 60, "f1": 0.8689839572192514, "precision": 0.9339080459770115, "recall": 0.8125}, {"SEED_SIZE": 6, "MAX_GAP": 1, "f1": 0.8146796431467964, "precision": 0.9423076923076923, "recall": 0.7175}, {"SEED_SIZE": 6, "MAX_GAP": 3, "f1": 0.8146796431467964, "precision": 0.9423076923076923, "recall": 0.7175}, {"SEED_SIZE": 6, "MAX_GAP": 5, "f1": 0.8146796431467964, "precision": 0.9423076923076923, "recall": 0.7175}, {"SEED_SIZE": 6, "MAX_GAP": 10, "f1": 0.8201758346399166, "precision": 0.9316939890710383, "recall": 0.7325}, {"SEED_SIZE": 6, "MAX_GAP": 15, "f1": 0.8240418730459831, "precision": 0.9296187683284457, "recall": 0.74}, {"SEED_SIZE": 6, "MAX_GAP": 20, "f1": 0.8279123289641657, "precision": 0.927710843373494, "recall": 0.7475}, {"SEED_SIZE": 6, "MAX_GAP": 30, "f1": 0.8299632352941178, "precision": 0.9290123456790124, "recall": 0.75}, {"SEED_SIZE": 6, "MAX_GAP": 40, "f1": 0.8299632352941178, "precision": 0.9290123456790124, "recall": 0.75}, {"SEED_SIZE": 6, "MAX_GAP": 60, "f1": 0.832942552964282, "precision": 0.9404388714733543, "recall": 0.7475}, {"SEED_SIZE": 7, "MAX_GAP": 1, "f1": 0.8146796431467964, "precision": 0.9423076923076923, "recall": 0.7175}, {"SEED_SIZE": 7, "MAX_GAP": 3, "f1": 0.8146796431467964, "precision": 0.9423076923076923, "recall": 0.7175}, {"SEED_SIZE": 7, "MAX_GAP": 5, "f1": 0.8146796431467964, "precision": 0.9423076923076923, "recall": 0.7175}, {"SEED_SIZE": 7, "MAX_GAP": 10, "f1": 0.8132494203378603, "precision": 0.9342465753424658, "recall": 0.72}, {"SEED_SIZE": 7, "MAX_GAP": 15, "f1": 0.8138135166258816, "precision": 0.9315476190476191, "recall": 0.7225}, {"SEED_SIZE": 7, "MAX_GAP": 20, "f1": 0.8160835751596053, "precision": 0.9292307692307692, "recall": 0.7275}, {"SEED_SIZE": 7, "MAX_GAP": 30, "f1": 0.8164412419505424, "precision": 0.9301587301587302, "recall": 0.7275}, {"SEED_SIZE": 7, "MAX_GAP": 40, "f1": 0.8163555487236639, "precision": 0.9299363057324841, "recall": 0.7275}, {"SEED_SIZE": 7, "MAX_GAP": 60, "f1": 0.8186442637481214, "precision": 0.9358974358974359, "recall": 0.7275}, {"SEED_SIZE": 8, "MAX_GAP": 1, "f1": 0.8146796431467964, "precision": 0.9423076923076923, "recall": 0.7175}, {"SEED_SIZE": 8, "MAX_GAP": 3, "f1": 0.8146796431467964, "precision": 0.9423076923076923, "recall": 0.7175}, {"SEED_SIZE": 8, "MAX_GAP": 5, "f1": 0.8146796431467964, "precision": 0.9423076923076923, "recall": 0.7175}, {"SEED_SIZE": 8, "MAX_GAP": 10, "f1": 0.8119874074982624, "precision": 0.9351351351351351, "recall": 0.7175}, {"SEED_SIZE": 8, "MAX_GAP": 15, "f1": 0.810133728520518, "precision": 0.9302325581395349, "recall": 0.7175}, {"SEED_SIZE": 8, "MAX_GAP": 20, "f1": 0.8096706468967327, "precision": 0.9290123456790124, "recall": 0.7175}, {"SEED_SIZE": 8, "MAX_GAP": 30, "f1": 0.8098509321605106, "precision": 0.9294871794871795, "recall": 0.7175}, {"SEED_SIZE": 8, "MAX_GAP": 40, "f1": 0.8096782093353578, "precision": 0.9290322580645162, "recall": 0.7175}, {"SEED_SIZE": 8, "MAX_GAP": 60, "f1": 0.8118811881188118, "precision": 0.9348534201954397, "recall": 0.7175}], "gridParams": ["SEED_SIZE", "MAX_GAP"], "editRates": [0.0, 0.1, 0.2, 0.3, 0.4], "hasGold": true, "info": {"planted": 400, "cases": 4, "gold": 455, "quick": false, "books": ["matthew", "mark", "luke", "john"], "created": "2026-10-08 15:16"}};
+const pct = v => (v * 100).toFixed(0) + "%";
+const cssVar = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const SVG = "http://www.w3.org/2000/svg";
+function el(tag, attrs, parent) {
+  const e = document.createElementNS(SVG, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function h(tag, text, parent, cls) {
+  const e = document.createElement(tag);
+  if (text !== undefined && text !== null) e.textContent = text;
+  if (cls) e.className = cls;
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function rowsFor(param) { return DATA.rows.filter(r => r.parameter === param); }
+
+/* ---------- line chart with crosshair tooltip ---------- */
+function lineChart(container, opt) {
+  container.innerHTML = "";
+  const W = 520, H = 262, L = 44, R = 116, T = 26, B = 40;
+  const n = opt.x.length, step = (W - L - R) / Math.max(1, n - 1);
+  const X = i => L + i * step, Y = v => T + (1 - v) * (H - T - B);
+  if (opt.series.length > 1) {
+    const lg = h("div", null, container, "legend");
+    opt.series.forEach(s => { const sp = h("span", null, lg); const i = h("i", null, sp); i.style.background = cssVar(s.color); h("b", s.name, sp).style.fontWeight = 400; });
+  }
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": opt.title }, container);
+  [0, 0.25, 0.5, 0.75, 1].forEach(v => {
+    el("line", { x1: L, x2: W - R, y1: Y(v), y2: Y(v), stroke: cssVar(v === 0 ? "--axis" : "--grid"), "stroke-width": 1 }, svg);
+    el("text", { x: L - 6, y: Y(v) + 4, "text-anchor": "end", "font-size": 11, fill: cssVar("--muted") }, svg).textContent = pct(v);
+  });
+  opt.x.forEach((v, i) => {
+    el("text", { x: X(i), y: H - B + 16, "text-anchor": "middle", "font-size": 11, fill: cssVar("--muted") }, svg).textContent = v;
+  });
+  el("text", { x: (L + W - R) / 2, y: H - 4, "text-anchor": "middle", "font-size": 11, fill: cssVar("--ink-2") }, svg).textContent = opt.xTitle;
+  if (opt.currentIndex >= 0) {
+    el("line", { x1: X(opt.currentIndex), x2: X(opt.currentIndex), y1: T - 12, y2: H - B, stroke: cssVar("--ink-2"), "stroke-width": 1 }, svg);
+    el("text", { x: X(opt.currentIndex), y: T - 16, "text-anchor": "middle", "font-size": 10, fill: cssVar("--ink-2") }, svg).textContent = "current";
+  }
+  // lines and points
+  const ends = [];
+  opt.series.forEach(s => {
+    const color = cssVar(s.color);
+    const d = s.values.map((v, i) => `${i ? "L" : "M"}${X(i)},${Y(v)}`).join(" ");
+    el("path", { d, fill: "none", stroke: color, "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }, svg);
+    s.values.forEach((v, i) => el("circle", { cx: X(i), cy: Y(v), r: 4, fill: color, stroke: cssVar("--surface"), "stroke-width": 2 }, svg));
+    if (s.label !== false) ends.push({ y: Y(s.values[n - 1]), name: s.name });
+  });
+  // direct labels at the right end, pushed apart so they don't overlap
+  ends.sort((a, b) => a.y - b.y);
+  for (let k = 1; k < ends.length; k++) if (ends[k].y - ends[k - 1].y < 13) ends[k].y = ends[k - 1].y + 13;
+  ends.forEach(e => { el("text", { x: X(n - 1) + 9, y: e.y + 4, "font-size": 11, fill: cssVar("--ink-2") }, svg).textContent = e.name; });
+  // hover layer
+  const cross = el("line", { y1: T, y2: H - B, stroke: cssVar("--muted"), "stroke-width": 1, visibility: "hidden" }, svg);
+  const hit = el("rect", { x: L - step / 2, y: 0, width: W - L - R + step, height: H - B, fill: "transparent", tabindex: 0 }, svg);
+  const tip = h("div", null, container, "tip");
+  function show(i) {
+    cross.setAttribute("x1", X(i)); cross.setAttribute("x2", X(i)); cross.setAttribute("visibility", "visible");
+    tip.innerHTML = "";
+    h("div", `${opt.xTitle} = ${opt.x[i]}${i === opt.currentIndex ? " (the value used now)" : ""}`, tip, "head");
+    opt.series.forEach(s => { const r = h("div", null, tip, "row"); h("b", pct(s.values[i]), r); h("i", null, r).style.background = cssVar(s.color); h("span", s.name, r); });
+    (opt.extra ? opt.extra(i) : []).forEach(t => h("div", t, tip, "small"));
+    tip.style.display = "block";
+    const box = svg.getBoundingClientRect(), scale = box.width / W;
+    let left = X(i) * scale + 12;
+    if (left + tip.offsetWidth > box.width) left = X(i) * scale - tip.offsetWidth - 12;
+    tip.style.left = left + "px"; tip.style.top = (T * scale + 18) + "px";
+  }
+  function hide() { cross.setAttribute("visibility", "hidden"); tip.style.display = "none"; }
+  hit.addEventListener("pointermove", ev => {
+    const box = svg.getBoundingClientRect(), x = (ev.clientX - box.left) * W / box.width;
+    show(Math.max(0, Math.min(n - 1, Math.round((x - L) / step))));
+  });
+  hit.addEventListener("pointerleave", hide);
+  let focusIndex = opt.currentIndex >= 0 ? opt.currentIndex : 0;
+  hit.addEventListener("focus", () => show(focusIndex));
+  hit.addEventListener("blur", hide);
+  hit.addEventListener("keydown", ev => {
+    if (ev.key === "ArrowRight") focusIndex = Math.min(n - 1, focusIndex + 1);
+    else if (ev.key === "ArrowLeft") focusIndex = Math.max(0, focusIndex - 1);
+    else return;
+    ev.preventDefault(); show(focusIndex);
+  });
+}
+
+/* ---------- helpers for the text ---------- */
+function best(rows, key) {
+  // highest value; on a tie, the one closest to the current setting
+  let b = rows[0];
+  rows.forEach(r => { if (r[key] > b[key] + 1e-9) b = r; });
+  const ties = rows.filter(r => Math.abs(r[key] - b[key]) < 1e-9);
+  return ties.find(r => r.is_current) || ties[0];
+}
+function advice(rows) {
+  // Plain-language advice: keep the current value unless another one is clearly better on BOTH tests.
+  const cur = rows.find(r => r.is_current), b = best(rows, "f1");
+  if (!cur) return { keep: false, short: `Try ${b.value}`, long: `The best value on the practice test is ${b.value}.` };
+  if (b.is_current) return { keep: true, short: "Keep it: already the best",
+    long: `Keep ${cur.value}: no other value gets a better overall score on the practice test.` };
+  if (DATA.hasGold && b.known_found < cur.known_found - 0.02) return { keep: true, short: "Keep it: the other value finds fewer real parallels",
+    long: `Keep ${cur.value}. The practice test likes ${b.value} a little more (${pct(b.f1)} instead of ${pct(cur.f1)}), ` +
+          `but on the real Gospels ${b.value} finds fewer of the known parallels (${pct(b.known_found)} instead of ${pct(cur.known_found)}).` };
+  if (b.f1 - cur.f1 < 0.02) return { keep: true, short: "Keep it: the difference is too small to matter",
+    long: `Keep ${cur.value}. The best value, ${b.value}, scores ${pct(b.f1)} instead of ${pct(cur.f1)}: a difference too small to matter.` };
+  return { keep: false, short: `Worth trying ${b.value}`,
+    long: `Worth trying ${b.value}: it scores ${pct(b.f1)} instead of ${pct(cur.f1)} on the practice test` +
+          (DATA.hasGold ? ` and finds ${pct(b.known_found)} of the known real parallels (now ${pct(cur.known_found)}).` : ".") };
+}
+function takeaway(container, rows) {
+  const cur = rows.find(r => r.is_current), first = rows[0], last = rows[rows.length - 1], a = advice(rows);
+  const box = h("div", null, container, "takeaway");
+  const p1 = h("p", null, box); p1.style.margin = "0 0 4px";
+  h("b", a.long, p1);
+  const p2 = h("p", null, box); p2.style.margin = "0";
+  p2.textContent = (cur ? `Right now the overall score is ${pct(cur.f1)}` +
+      (DATA.hasGold ? ` and ${pct(cur.known_found)} of the known real parallels are found. ` : ". ") : "") +
+    `With the smallest value tried (${first.value}), ${pct(first.precision)} of the reported matches are correct and ` +
+    `${pct(first.recall)} of the hidden passages are found; with the biggest (${last.value}) it is ${pct(last.precision)} correct ` +
+    `and ${pct(last.recall)} found.`;
+}
+
+/* ---------- build the page ---------- */
+function render() {
+  const info = DATA.info;
+  const names = info.books.map(b => b[0].toUpperCase() + b.slice(1)).join(", ");
+  document.getElementById("intro").textContent =
+    `Practice test: ${info.planted} hidden passages in ${info.cases} jumbled texts made from ${names}.` +
+    (DATA.hasGold ? ` Real test: ${info.gold} known parallels.` : "") +
+    ` Made on ${info.created}${info.quick ? " (quick run: fewer passages, so the numbers are rougher)" : ""}.`;
+  const realtest = document.getElementById("realtest"); realtest.innerHTML = "";
+  h("b", "2. The real test. ", realtest);
+  realtest.appendChild(document.createTextNode(DATA.hasGold
+    ? `We run the program on the real Gospels and compare it with a list of ${info.gold} known parallels ` +
+      `taken from Kurt Aland's Synopsis, the standard reference book scholars use (file gold_parallels.csv). ` +
+      `This checks that the settings also work on real texts, not just on our made-up test.`
+    : "Skipped, because the file gold_parallels.csv was not found."));
+  const goldnote = document.getElementById("goldnote"); goldnote.innerHTML = "";
+  if (DATA.hasGold) {
+    h("b", "Known found (real test): ", goldnote);
+    goldnote.appendChild(document.createTextNode("the share of the known parallels that the program found. Not every known " +
+      "parallel can be found: some stories are told in completely different words."));
+    goldnote.appendChild(document.createElement("br"));
+    h("b", "Inside known (real test): ", goldnote);
+    goldnote.appendChild(document.createTextNode("the share of the program's matches that lie inside a known parallel. " +
+      "The known list is not complete, so the true share of correct matches is higher than this."));
+  }
+
+  // summary table
+  const sum = document.getElementById("summary"); sum.innerHTML = "";
+  const hr = h("tr", null, h("thead", null, sum));
+  ["Setting", "Value now", "Overall score now", "Best value (practice test)", "Its overall score"]
+    .concat(DATA.hasGold ? ["Known parallels found now"] : []).concat(["Advice"]).forEach(t => h("th", t, hr));
+  const tb = h("tbody", null, sum);
+  Object.keys(DATA.sweeps).forEach(p => {
+    const rows = rowsFor(p), cur = rows.find(r => r.is_current), b = best(rows, "f1");
+    const tr = h("tr", null, tb);
+    h("td", p, tr); h("td", String(DATA.current[p]), tr); h("td", cur ? pct(cur.f1) : "n/a", tr);
+    h("td", String(b.value), tr); h("td", pct(b.f1), tr);
+    if (DATA.hasGold) h("td", cur ? pct(cur.known_found) : "n/a", tr);
+    h("td", advice(rows).short, tr);
+  });
+
+  // one section per setting
+  const sections = document.getElementById("sections"); sections.innerHTML = "";
+  Object.keys(DATA.sweeps).forEach(p => {
+    const rows = rowsFor(p), x = rows.map(r => r.value), ci = rows.findIndex(r => r.is_current);
+    h("h2", p, sections);
+    h("p", DATA.explain[p], sections, "sub");
+    takeaway(sections, rows);
+    const g = h("div", null, sections, "grid2");
+    const card = (title, note) => { const c = h("div", null, g, "card"); h("h3", title, c); h("p", note, c, "small"); return h("div", null, c, "chart"); };
+
+    lineChart(card("Practice test: how good are the results?", "The Overall (F1) line is the main score."),
+      { title: `${p}: precision, recall and F1`, x, xTitle: p, currentIndex: ci,
+      series: [{ name: "Precision (correct)", values: rows.map(r => r.precision), color: "--s1" },
+               { name: "Recall (found)", values: rows.map(r => r.recall), color: "--s2" },
+               { name: "Overall (F1)", values: rows.map(r => r.f1), color: "--s3" }],
+      extra: i => [`${rows[i].reported} matches reported`] });
+
+    lineChart(card("Practice test: hidden passages found, by how much they were changed", "The more a passage was changed, the harder it is to find."),
+      { title: `${p}: recall by how much the passage was changed`, x, xTitle: p, currentIndex: ci,
+      series: DATA.editRates.map((rate, k) => ({ name: rate === 0 ? "Exact copy" : `${Math.round(rate * 100)}% changed`, color: `--o${k + 1}`,
+        values: rows.map(r => r[`found_${Math.round(rate * 100)}pct_edits`]), label: k === 0 || k === DATA.editRates.length - 1 })) });
+
+    lineChart(card("Practice test: are the start and end in the right place?", "100% = the start and end of each found passage are exactly right."),
+      { title: `${p}: boundary fit`, x, xTitle: p, currentIndex: ci,
+      series: [{ name: "Boundary fit", values: rows.map(r => r.boundary_fit), color: "--s1", label: false }] });
+
+    if (DATA.hasGold) {
+      lineChart(card("Real test: the known Gospel parallels", "Known found = how many known parallels were found. Inside known = how many matches are inside a known parallel."),
+        { title: `${p}: known parallels in the real Gospels`, x, xTitle: p, currentIndex: ci,
+        series: [{ name: "Known found", values: rows.map(r => r.known_found), color: "--s1" },
+                 { name: "Inside known", values: rows.map(r => r.real_inside_known), color: "--s2" }],
+        extra: i => [`${rows[i].real_reported} matches reported in the real Gospels`] });
+    }
+
+    // the numbers
+    const det = h("details", null, sections); h("summary", "Show all the numbers", det);
+    const wrap = h("div", null, det, "table-wrap"), t = h("table", null, wrap);
+    const cols = [["value", p], ["f1", "Overall (F1)"], ["precision", "Precision (correct)"], ["recall", "Recall (found)"], ["boundary_fit", "Boundary fit"]]
+      .concat(DATA.editRates.map(r => [`found_${Math.round(r * 100)}pct_edits`, r === 0 ? "Found: exact copies" : `Found: ${Math.round(r * 100)}% changed`]))
+      .concat([["reported", "Matches reported (practice)"]])
+      .concat(DATA.hasGold ? [["known_found", "Known found (real)"], ["real_reported", "Matches reported (real)"], ["real_inside_known", "Inside known (real)"]] : [])
+      .concat([["seconds", "Seconds"]]);
+    const thr = h("tr", null, h("thead", null, t)); cols.forEach(c => h("th", c[1], thr));
+    const tbody = h("tbody", null, t);
+    rows.forEach(r => {
+      const tr = h("tr", null, tbody); if (r.is_current) tr.className = "current";
+      cols.forEach(([k]) => {
+        let v = r[k];
+        if (k === "value") v = r.is_current ? `${v} (now)` : v;
+        else if (k === "reported" || k === "real_reported") v = String(v);
+        else if (k === "seconds") v = v.toFixed(1);
+        else v = pct(v);
+        h("td", String(v), tr);
+      });
+    });
+  });
+
+  heatmap();
+}
+
+/* ---------- heatmap: two settings at once ---------- */
+function mix(a, b, t) {
+  const p = s => [1, 3, 5].map(i => parseInt(s.slice(i, i + 2), 16));
+  const A = p(a), B = p(b);
+  return `rgb(${A.map((v, i) => Math.round(v + (B[i] - v) * t)).join(",")})`;
+}
+function heatmap() {
+  const [pa, pb] = DATA.gridParams, va = DATA.sweeps[pa], vb = DATA.sweeps[pb];
+  document.getElementById("heat-title").textContent = `Trying ${pa} and ${pb} together`;
+  document.getElementById("heat-sub").textContent =
+    `These two settings affect each other, so here every combination was tried. Each square shows the overall score (F1) ` +
+    `on the practice test; the color scale under the grid shows which color means better. The square with a thick border ` +
+    `is the combination used now. Move the mouse over a square to see its numbers. This grid only uses the practice test, ` +
+    `so check a promising combination on the real Gospels too before switching.`;
+  const box = document.getElementById("heatmap"); box.innerHTML = "";
+  const cell = 46, gap = 2, L = 90, T = 46;
+  const W = L + vb.length * cell + 10, H = T + va.length * cell + 40;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "F1 heatmap" }, box);
+  svg.style.maxWidth = W * 1.4 + "px";
+  // the color scale starts at the 25th percentile, so differences between the good settings stay visible
+  const vals = DATA.grid.map(g => g.f1).sort((a, b) => a - b), hi = vals[vals.length - 1];
+  const lo = vals[Math.floor(vals.length * 0.25)], clamped = vals[0] < lo;
+  const low = cssVar("--seq-low"), high = cssVar("--seq-high");
+  const color = v => mix(low, high, hi > lo ? Math.max(0, (v - lo) / (hi - lo)) : 1);
+  const bestCell = DATA.grid.reduce((a, b) => (b.f1 > a.f1 ? b : a));
+  const tip = h("div", null, box, "tip");
+  vb.forEach((v, j) => { el("text", { x: L + j * cell + cell / 2, y: T - 8, "text-anchor": "middle", "font-size": 11, fill: cssVar("--muted") }, svg).textContent = v; });
+  el("text", { x: L + vb.length * cell / 2, y: 12, "text-anchor": "middle", "font-size": 11, fill: cssVar("--ink-2") }, svg).textContent = pb;
+  va.forEach((v, i) => { el("text", { x: L - 10, y: T + i * cell + cell / 2 + 4, "text-anchor": "end", "font-size": 11, fill: cssVar("--muted") }, svg).textContent = v; });
+  el("text", { x: 14, y: T + va.length * cell / 2, "text-anchor": "middle", "font-size": 11, fill: cssVar("--ink-2"), transform: `rotate(-90 14 ${T + va.length * cell / 2})` }, svg).textContent = pa;
+  DATA.grid.forEach(g => {
+    const i = va.indexOf(g[pa]), j = vb.indexOf(g[pb]);
+    const x = L + j * cell + gap / 2, y = T + i * cell + gap / 2, s = cell - gap;
+    const isCur = g[pa] === DATA.current[pa] && g[pb] === DATA.current[pb];
+    const r = el("rect", { x, y, width: s, height: s, rx: 4, fill: color(g.f1), tabindex: 0 }, svg);
+    if (isCur) el("rect", { x: x + 1, y: y + 1, width: s - 2, height: s - 2, rx: 4, fill: "none", stroke: cssVar("--ink"), "stroke-width": 2, "pointer-events": "none" }, svg);
+    if (g === bestCell || isCur) {
+      const rgb = color(g.f1).match(/\d+/g).map(Number);
+      const lum = (0.299 * rgb[0] + 0.587 * rgb[1] + 0.114 * rgb[2]) / 255;
+      el("text", { x: x + s / 2, y: y + s / 2 + 4, "text-anchor": "middle", "font-size": 11, "font-weight": 600, fill: lum < 0.55 ? "#ffffff" : "#0b0b0b", "pointer-events": "none" }, svg).textContent = pct(g.f1);
+    }
+    const show = () => {
+      r.setAttribute("stroke", cssVar("--ink-2")); r.setAttribute("stroke-width", 1);
+      tip.innerHTML = "";
+      h("div", `${pa} = ${g[pa]}, ${pb} = ${g[pb]}${isCur ? " (used now)" : ""}${g === bestCell ? " (best)" : ""}`, tip, "head");
+      [["Overall (F1)", g.f1], ["Precision (correct)", g.precision], ["Recall (found)", g.recall]].forEach(([n, v]) => { const row = h("div", null, tip, "row"); h("b", pct(v), row); h("span", n, row); });
+      tip.style.display = "block";
+      const b = svg.getBoundingClientRect(), sc = b.width / W;
+      let left = (x + s) * sc + 8; if (left + tip.offsetWidth > box.clientWidth) left = x * sc - tip.offsetWidth - 8;
+      tip.style.left = left + "px"; tip.style.top = (y * sc) + "px";
+    };
+    const hide = () => { r.removeAttribute("stroke"); tip.style.display = "none"; };
+    r.addEventListener("pointerenter", show); r.addEventListener("pointerleave", hide);
+    r.addEventListener("focus", show); r.addEventListener("blur", hide);
+  });
+  const sc = document.getElementById("heat-scale"); sc.innerHTML = "";
+  h("span", `Overall score ${clamped ? "≤ " : ""}${pct(lo)}`, sc); const bar = h("span", null, sc, "bar");
+  bar.style.background = `linear-gradient(90deg, ${low}, ${high})`; h("span", pct(hi), sc);
+  h("span", `Best square: ${pa} = ${bestCell[pa]}, ${pb} = ${bestCell[pb]} (${pct(bestCell.f1)})`, sc);
+
+  const t = document.getElementById("heat-table"); t.innerHTML = "";
+  const thr = h("tr", null, h("thead", null, t)); h("th", `${pa} \\ ${pb}`, thr); vb.forEach(v => h("th", String(v), thr));
+  const tbody = h("tbody", null, t);
+  va.forEach(a => { const tr = h("tr", null, tbody); h("th", String(a), tr);
+    vb.forEach(b => { const g = DATA.grid.find(q => q[pa] === a && q[pb] === b); h("td", pct(g.f1), tr); }); });
+}
+
+render();
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", render);
+new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+</script>
+</body>
+</html>
